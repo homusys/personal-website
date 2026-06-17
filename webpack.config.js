@@ -18,6 +18,11 @@ export default {
             template: "./src/index.html",
         }),
     ],
+    devtool: "eval-source-map",
+    devServer: {
+        static: "./dist",
+        watchFiles: ["./src/index.html"]
+    },
     module: {
         rules: [
             {
