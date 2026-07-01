@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cabin:ital,wght@0,400..700;1,400..700&family=Patrick+Hand&display=swap');
+
+:root {
+
+    /* Primary is for buttons and similar elements */
+    /* Secondary is for state such as hover effects or bullets */
+
+    /* Light mode is Fauna themed */
+    --bg-light: #ade490;
+    --primary-light: #0a1505;
+    --secondary-light: #1D390E;
+    --text-light: #2c3e50;
+   
+    /* Dark mode is Homura themed. */
+    --bg-dark: #08080c;
+    --primary-dark: #12121a;
+    --secondary-dark: #6e4Ba8;
+    --text-dark: #f5f5f7;
+
+    /* Both have golden accents */
+    --accent: #d4af37;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+}
+
+.font-cursive {
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.font-sans-serif {
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-weight: 400;
+
+    &.font-weight-500 {
+        font-weight: 500;
+    }
+
+    &.font-weight-600 {
+        font-weight: 600;
+    }
+
+    &.font-weight-700 {
+        font-weight: 700;
+    }
+}
+
+.font-serif {
+    font-family: "Arvo", serif;
+    font-style: normal;
+    font-weight: 400;
+    
+    &.font-weight-bold {
+        font-weight: 700;
+    }
+    
+    &.font-style-italic {
+        font-style: italic;
+    }
+}
+
+.header {
+    
+}
+
+.icon {
+    aspect-ratio: 1/1;
+
+    &.icon--size-s {
+        width: 16px;
+    }
+    
+    &.icon--size-m {
+        width: 24px;
+    }
+    
+    &.icon--size-l {
+        width: 32px;
+    }
+}
