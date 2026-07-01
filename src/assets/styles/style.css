@@ -19,6 +19,10 @@
 
     /* Both have golden accents */
     --accent: #d4af37;
+
+    --common-border-radius: 8px;
+    --common-border: 1px solid var(--secondary-light);
+    --common-gap: 8px;
 }
 
 *, *::before, *::after {
@@ -35,12 +39,14 @@ body {
     background-color: var(--bg-light);
 }
 
+ul {
+    list-style-type: none;
+}
 .font-cursive {
     font-family: "Patrick Hand", cursive;
     font-weight: 400;
     font-style: normal;
 }
-
 
 .font-sans-serif {
     font-family: "Cabin", sans-serif;
@@ -77,7 +83,39 @@ body {
 }
 
 .header {
+    border-bottom: var(--common-border);
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 100%;
     
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav,
+.nav__container,
+.nav__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav {
+    justify-content: space-between;
+}
+
+.nav__container {
+    gap: var(--common-gap);
+}
+
+.nav__link,
+.nav__links {
+    text-decoration: none;
+}
+
+.nav__links {
+    display: none;
 }
 
 .icon {
@@ -93,5 +131,26 @@ body {
     
     &.icon--size-l {
         width: 32px;
+    }
+}
+
+.icon__button {
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--common-border);
+    border-radius: var(--common-border-radius);
+
+    &.icon__button--size-s {
+        width: 16px;    
+    }
+
+    &.icon__button--size-m {
+        width: 24px;
+    }
+
+    &.icon__button--size-l {
+        width: 38px;
     }
 }

@@ -18,6 +18,7 @@ class DomHandler {
         if (!button) {
             return;
         }
+        button.classList.add("icon__button--size-l");
 
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("viewBox", VIEWBOX);
@@ -31,6 +32,7 @@ class DomHandler {
         button.appendChild(svg);
     }
 
+    
     setSvgIconSize(svgElement, size="s") {
         switch (size) {
             case "s":
@@ -57,9 +59,16 @@ iconsHandler.initIcons()
         const defaultIconConfig = {
             "size": "m"
         }
+
         dom.addSvgIconToButton(
             "#navBurger",
             iconsHandler.getIconPathDFromId("burger"),
+            defaultIconConfig
+        );
+
+        dom.addSvgIconToButton(
+            "#navThemer",
+            iconsHandler.getIconPathDFromId("moon"),
             defaultIconConfig
         );
     });
