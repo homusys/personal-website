@@ -62,6 +62,10 @@ iconsHandler.initIcons()
             "size": "m"
         }
 
+        const heroIconsConfig = {
+            "size": "s"
+        }
+
         dom.addSvgIconToButton(
             "#navBurger",
             iconsHandler.getIconPathDFromId("burger"),
@@ -72,6 +76,30 @@ iconsHandler.initIcons()
             "#navThemer",
             iconsHandler.getIconPathDFromId("moon"),
             defaultIconConfig
+        );
+
+        dom.addSvgIconToButton(
+            "#resumeLink",
+            iconsHandler.getIconPathDFromId("download"),
+            heroIconsConfig
+        );
+
+        dom.addSvgIconToButton(
+            "#githubLink",
+            iconsHandler.getIconPathDFromId("github"),
+            heroIconsConfig
+        );
+
+        dom.addSvgIconToButton(
+            "#linkedInLink",
+            iconsHandler.getIconPathDFromId("linkedin"),
+            heroIconsConfig
+        );
+
+        dom.addSvgIconToButton(
+            "#emailLink",
+            iconsHandler.getIconPathDFromId("email"),
+            heroIconsConfig
         );
     })
     .then(() => {

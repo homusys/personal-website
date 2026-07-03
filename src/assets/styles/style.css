@@ -140,6 +140,31 @@ ul {
 .hero__pic {
 }
 
+.hero__links {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.hero__link {
+    align-items: center;
+    border: var(--common-border);
+    border-radius: calc(var(--common-border-radius) * 2);
+    color: var(--text-light);
+    display: flex;
+    font-size: 1rem;
+    gap: 4px;
+
+    padding: 6px 12px;
+    text-decoration: none;
+
+    &.link--strong-true {
+        background-color: var(--secondary-light);
+        color: var(--text-dark);
+    }
+}
+
 .icon {
     aspect-ratio: 1/1;
 
@@ -191,4 +216,8 @@ ul {
  
 #soulGem {
     display: none;
+}
+
+#resumeLink {
+    fill: var(--bg-light);
 }
