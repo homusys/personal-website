@@ -9,7 +9,7 @@ export default {
     entry: "./src/index.js",
     mode: "development",
     output: {
-        filename: "main.js",
+        filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
     },
@@ -30,8 +30,15 @@ export default {
                 use: ["style-loader", "css-loader"],
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif|pdf)$/i,
                 type: "asset/resource",
+            },
+            {
+                test: /\.pdf$/i,
+                type: "asset/resource",
+                generator: {
+                    filename: "[name].[contenthash][ext]",
+                }
             },
         ],
     },
