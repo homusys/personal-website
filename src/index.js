@@ -1,5 +1,7 @@
 import "./assets/styles/style.css";
 import { IconHandler } from "./assets/icons/icons.js";
+import { goldenAppleImage } from "./assets/images/images.js";
+import { default as resumePDF } from "./Carl_Matthew_Arzadon_Resume.pdf";
 
 
 /**
@@ -71,4 +73,11 @@ iconsHandler.initIcons()
             iconsHandler.getIconPathDFromId("moon"),
             defaultIconConfig
         );
+    })
+    .then(() => {
+        const goldenApple = document.querySelector("#goldenApple");
+        goldenApple.setAttribute("src", goldenAppleImage);
+
+        const resumeLink = document.querySelector("#resumeLink");
+        resumeLink.setAttribute("href", resumePDF);
     });

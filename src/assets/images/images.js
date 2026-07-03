@@ -1,0 +1,1 @@
+export { default as goldenAppleImage } from "./golden-apple.png";
