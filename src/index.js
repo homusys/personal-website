@@ -1,6 +1,7 @@
 import "./assets/styles/style.css";
 import { IconHandler } from "./assets/icons/icons.js";
 import { goldenAppleImage } from "./assets/images/images.js";
+import profilePic from "./assets/images/profile.png";
 import { default as resumePDF } from "./Carl_Matthew_Arzadon_Resume.pdf";
 
 
@@ -63,7 +64,7 @@ iconsHandler.initIcons()
         }
 
         const heroIconsConfig = {
-            "size": "s"
+            "size": "l"
         }
 
         dom.addSvgIconToButton(
@@ -103,8 +104,8 @@ iconsHandler.initIcons()
         );
     })
     .then(() => {
-        const goldenApple = document.querySelector("#goldenApple");
-        goldenApple.setAttribute("src", goldenAppleImage);
+        const heroProfilePic = document.querySelector("#profilePic");
+        heroProfilePic.setAttribute("src", profilePic);
 
         const resumeLink = document.querySelector("#resumeLink");
         resumeLink.setAttribute("href", resumePDF);

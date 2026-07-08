@@ -1,26 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cabin:ital,wght@0,400..700;1,400..700&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Quicksand:wght@300..700&display=swap');
 
 :root {
-
-    /* Primary is for buttons and similar elements */
-    /* Secondary is for state such as hover effects or bullets */
-
-    /* Light mode is Fauna themed */
-    --bg-light: #ade490;
-    --primary-light: #0a1505;
-    --secondary-light: #1D390E;
-    --text-light: #2c3e50;
-   
-    /* Dark mode is Homura themed. */
-    --bg-dark: #08080c;
-    --primary-dark: #12121a;
-    --secondary-dark: #6e4Ba8;
-    --text-dark: #f5f5f7;
-
-    /* Both have golden accents */
+    --black: #08080c;
+    --white: #f5f5f7;
+    --primary: #12121a;
+    --secondary: #6e4Ba8;
     --accent: #d4af37;
 
-    --common-border-radius: 8px;
+    --common-border-radius: 6px;
     --common-border: 1px solid var(--secondary-light);
     --common-gap: 8px;
 }
@@ -36,52 +23,31 @@ html {
 }
 
 body {
-    background-color: var(--bg-light);
-    color: var(--text-light);
+    background-color: var(--primary);
+    color: var(--white);
+
+    /* Default Font */
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 ul {
     list-style-type: none;
 }
 
-.font-cursive {
-    font-family: "Patrick Hand", cursive;
+.font-display {
+    font-family: "Bungee", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
-.font-sans-serif {
-    font-family: "Cabin", sans-serif;
+.font-header {
+    font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
+    font-weight: 700;
     font-style: normal;
-    font-variation-settings: "wdth" 100;
-    font-weight: 400;
-
-    &.font-weight-500 {
-        font-weight: 500;
-    }
-
-    &.font-weight-600 {
-        font-weight: 600;
-    }
-
-    &.font-weight-700 {
-        font-weight: 700;
-    }
-}
-
-.font-serif {
-    font-family: "Arvo", serif;
-    font-style: normal;
-    font-weight: 400;
-    
-    &.font-weight-bold {
-        font-weight: 700;
-    }
-    
-    &.font-style-italic {
-        font-style: italic;
-    }
 }
 
 .wrapper {
@@ -91,12 +57,15 @@ ul {
 .header {
     border-bottom: var(--common-border);
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 16px 22px;
     width: 100%;
     
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
+
+    mix-blend-mode: difference;
 }
 
 .nav,
@@ -128,41 +97,64 @@ ul {
 .hero {
     display: grid;
     align-items: start;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 71px;
 }
 
-.hero__head {
+.hero__pic {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    grid-column: 1 / span 4;
 }
 
-.hero__pic {
+.hero__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / span 4;
+    margin-top: var(--common-gap);
+}
+
+.hero__roles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    grid-column: 1 / span 4;
 }
 
 .hero__links {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    grid-column: 1 / span 4;
     gap: 8px;
     flex-wrap: wrap;
 }
 
 .hero__link {
     align-items: center;
-    border: var(--common-border);
-    border-radius: calc(var(--common-border-radius) * 2);
-    color: var(--text-light);
+    aspect-ratio: 1/1;
+    border-radius: var(--common-border-radius);
     display: flex;
     font-size: 1rem;
     gap: 4px;
-
     padding: 6px 12px;
     text-decoration: none;
 
+    /* If changing link colors make sure to include fill for the svg */
+    color: var(--secondary);
+    fill: var(--secondary);
+
     &.link--strong-true {
-        background-color: var(--secondary-light);
-        color: var(--text-dark);
+        color: var(--accent);
+        fill: var(--accent);
     }
+}
+
+.hero__link:active, 
+.hero__link:hover {
+    filter: brightness(.6);
 }
 
 .icon {
@@ -202,22 +194,13 @@ ul {
     }
 }
 
-#goldenApple,
-#soulGem {
+#profilePic {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0px 10px 20px black);
+    filter: drop-shadow(0px 5px 5px black);
+    border-radius: var(--common-border-radius);
 }
 
-#goldenApple:active,
-#soulGem {
-    filter: brightness(1.1) drop-shadow(0px 10px 20px var(--accent));
-}
- 
-#soulGem {
-    display: none;
-}
-
-#resumeLink {
-    fill: var(--bg-light);
+#profilePic:active {
+    filter: drop-shadow(0px 5px 5px var(--accent));
 }
