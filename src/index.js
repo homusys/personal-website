@@ -48,12 +48,62 @@ class DomHandler {
                 svgElement.classList.add("icon--size-l");
                 break;
         }
-    }   
+    }
+
+
+    createTechStackBuilder() {
+        const stack = new Set();
+        const add = (item) => {
+            if (typeof item !== "string") {
+                throw new Error(
+                "The item being added to the tech stack is not a String.",
+                );
+            }
+            stack.add(item);
+        }
+        const getStack = () => {
+            return stack;
+        }
+
+        return { add, getStack };
+    }
+
+
+    addToStackCollection(...stackItems) {
+        const stackCollection = document.querySelector("#stackColl");
+
+        for (const item of stackItems[0]) {
+            const stackItem = document.createElement("span");
+            stackItem.classList.add("stack__item");
+            stackItem.textContent = item;
+            stackCollection.appendChild(stackItem);
+        }
+        
+    }
 
     // TODO: Create a setter for switching themes (dark and light theme).
 }
 
 const dom = new DomHandler();
+const techStackBuilder = dom.createTechStackBuilder();
+techStackBuilder.add("HTML");
+techStackBuilder.add("CSS");
+techStackBuilder.add("JavaScript");
+techStackBuilder.add("Python");
+techStackBuilder.add("C");
+techStackBuilder.add("Java");
+techStackBuilder.add("Laravel");
+techStackBuilder.add("Flask");
+techStackBuilder.add("Tailwind CSS");
+techStackBuilder.add("Bootstrap");
+techStackBuilder.add("PyQt5");
+techStackBuilder.add("SQL Alchemy");
+techStackBuilder.add("SQLite");
+techStackBuilder.add("MySQL");
+techStackBuilder.add("PostgreSQL");
+techStackBuilder.add("Git");
+techStackBuilder.add("GitHub");
+dom.addToStackCollection(techStackBuilder.getStack());
 
 // Initialize icons to HTML
 const iconsHandler = new IconHandler();
@@ -110,3 +160,5 @@ iconsHandler.initIcons()
         const resumeLink = document.querySelector("#resumeLink");
         resumeLink.setAttribute("href", resumePDF);
     });
+
+    
