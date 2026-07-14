@@ -51,7 +51,7 @@ class DomHandler {
     }
 
 
-    createTechStackBuilder() {
+    collectionBuilder() {
         const stack = new Set();
         const add = (item) => {
             if (typeof item !== "string") {
@@ -69,41 +69,116 @@ class DomHandler {
     }
 
 
-    addToStackCollection(...stackItems) {
-        const stackCollection = document.querySelector("#stackColl");
+    addToTechStackCollection(targetId, ...stackItems) {
+        const collection = document.querySelector(targetId);
 
         for (const item of stackItems[0]) {
             const stackItem = document.createElement("span");
             stackItem.classList.add("stack__item");
             stackItem.textContent = item;
-            stackCollection.appendChild(stackItem);
+            collection.appendChild(stackItem);
         }
         
+    }
+
+
+    createExpCard(imageSrc, title, company, startEndDate, ...stackItems) {
+        const IMG_PLACEHOLD = "https://placehold.co/600x400/000000/fff?text=this+is+a+placeholder+image";
+
+        const expColl = document.querySelector("#expColl");
+        
+        const expCard = document.createElement("div");
+        expCard.classList.add("exp__card");
+        
+        const cardImage = document.createElement("figure");
+        cardImage.classList.add("card__image")
+        
+        const img = document.createElement("img");
+        img.src = (!imageSrc) ? IMG_PLACEHOLD : imageSrc;
+
+        const cardDetails = document.createElement("div");
+        cardDetails.classList.add("card__details");
+        
+        const header = document.createElement("h3");
+        header.textContent = title;
+        header.classList.add("font-header");
+
+        const companyP = document.createElement("p");
+        companyP.textContent = company;
+
+        const startEndDateP = document.createElement("p");
+        startEndDateP.textContent = startEndDate;
+
+        const techUsed = document.createElement("div");
+        techUsed.classList.add("tech__used");
+
+        for (const item of stackItems[0]) {
+            const stackItem = document.createElement("span");
+            stackItem.classList.add("stack__item");
+            stackItem.textContent = item;
+            techUsed.appendChild(stackItem);
+        }
+
+        const link = document.createElement("a");
+        link.classList.add("card__link");
+        link.href = "";
+        link.textContent = "Click for more details";
+
+        cardImage.appendChild(img);
+
+        cardDetails.appendChild(header);
+        cardDetails.appendChild(companyP);
+        cardDetails.appendChild(startEndDateP);
+        
+        expCard.appendChild(cardImage);
+        expCard.appendChild(cardDetails);
+        expCard.appendChild(techUsed);
+        expCard.appendChild(link);
+
+        expColl.appendChild(expCard);
     }
 
     // TODO: Create a setter for switching themes (dark and light theme).
 }
 
 const dom = new DomHandler();
-const techStackBuilder = dom.createTechStackBuilder();
-techStackBuilder.add("HTML");
-techStackBuilder.add("CSS");
-techStackBuilder.add("JavaScript");
-techStackBuilder.add("Python");
-techStackBuilder.add("C");
-techStackBuilder.add("Java");
-techStackBuilder.add("Laravel");
-techStackBuilder.add("Flask");
-techStackBuilder.add("Tailwind CSS");
-techStackBuilder.add("Bootstrap");
-techStackBuilder.add("PyQt5");
-techStackBuilder.add("SQL Alchemy");
-techStackBuilder.add("SQLite");
-techStackBuilder.add("MySQL");
-techStackBuilder.add("PostgreSQL");
-techStackBuilder.add("Git");
-techStackBuilder.add("GitHub");
-dom.addToStackCollection(techStackBuilder.getStack());
+const techStack = dom.collectionBuilder();
+techStack.add("HTML");
+techStack.add("CSS");
+techStack.add("JavaScript");
+techStack.add("Python");
+techStack.add("C");
+techStack.add("Java");
+techStack.add("Laravel");
+techStack.add("Flask");
+techStack.add("Tailwind CSS");
+techStack.add("Bootstrap");
+techStack.add("PyQt5");
+techStack.add("SQL Alchemy");
+techStack.add("SQLite");
+techStack.add("MySQL");
+techStack.add("PostgreSQL");
+techStack.add("Git");
+techStack.add("GitHub");
+dom.addToTechStackCollection("#stackColl", techStack.getStack());
+
+const exp1 = dom.collectionBuilder();
+exp1.add("HTML");
+exp1.add("CSS");
+exp1.add("Tailwind CSS");
+exp1.add("JavaScript");
+exp1.add("PHP");
+exp1.add("Laravel");
+exp1.add("MySQL");
+exp1.add("Git");
+exp1.add("GitHub");
+dom.createExpCard(
+    null,
+    "Web Developer Intern",
+    "Department of the Interior and Local Government - Cordillera Administrative Region",
+    "June 2025 - August 2025",
+    exp1.getStack()
+);
 
 // Initialize icons to HTML
 const iconsHandler = new IconHandler();

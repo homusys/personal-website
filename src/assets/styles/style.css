@@ -233,13 +233,12 @@ ul {
 
 .exp__card {
     background-color: var(--tertiary);
-    border-radius: calc(var(--common-border-radius) + 1px);
+    border-radius: calc(var(--common-border-radius) + 2px);
 
     color: var(--black);
 
     display: flex;
     flex-direction: column;
-    align-content: stretch;
 }
 
 .card__image {
@@ -257,6 +256,15 @@ ul {
 .card__details {
     padding: 12px;
     flex-grow: 1;
+}
+
+.tech__used {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-start;
+    padding: 12px
 }
 
 .card__link {
