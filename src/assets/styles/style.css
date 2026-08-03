@@ -61,6 +61,10 @@ ul {
 }
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   padding: 0 22px;
   position: relative;
 }
@@ -90,6 +94,7 @@ ul {
 
 .nav {
   justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .nav__container {
@@ -289,13 +294,14 @@ ul {
   border-radius: var(--common-border-radius);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: var(--common-gap);
   padding: 1.5rem;
   width: 100%;
   text-decoration: none;
   color: var(--black);
   fill: var(--black);
+  position: relative;
 
   transition: all ease-in 80ms;
 }
@@ -342,6 +348,26 @@ ul {
   }
 }
 
+.circle__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  height: 100%;
+  opacity: 0;
+
+  /* Animation optimization that hints the browser for property change @:
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/will-change */
+  will-change: opacity;
+
+  animation: fade 5s ease-in-out infinite;
+}
+
 #profilePic {
   width: 100%;
   height: 100%;
@@ -351,6 +377,16 @@ ul {
 
 #profilePic:active {
   filter: drop-shadow(0px 5px 5px var(--accent));
+}
+
+#certLinkAnimation {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 @media screen and (width >= 48rem) {
@@ -364,5 +400,16 @@ ul {
   .wrapper,
   .header {
     width: 30vw;
+  }
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.5;
   }
 }

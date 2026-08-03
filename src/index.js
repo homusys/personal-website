@@ -243,3 +243,23 @@ iconsHandler
     const resumeLink = document.querySelector("#resumeLink");
     resumeLink.setAttribute("href", resumePDF);
   });
+
+// Certifications Link Animation
+const certificationsLink = document.querySelector("#certificationsLink");
+const animateDiv = document.querySelector("#certLinkAnimation");
+
+const delay = "2s";
+
+for (let i = 0; i < 100; ++i) {
+  const circle__container = document.createElement("div");
+  circle__container.classList.add("circle__container");
+
+  const circle = document.createElement("div");
+  circle.classList.add("circle");
+
+  circle.style.animationDelay = `${Math.random() * 2}s`;
+
+  circle__container.appendChild(circle);
+
+  animateDiv.appendChild(circle__container);
+}
