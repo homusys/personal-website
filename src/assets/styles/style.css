@@ -306,6 +306,10 @@ ul {
   transition: all ease-in 80ms;
 }
 
+.big__link > .font-header {
+  z-index: 1;
+}
+
 .big__link:hover,
 .big__link:active {
   filter: invert(100%);
@@ -387,6 +391,7 @@ ul {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  z-index: 0;
 }
 
 @media screen and (width >= 48rem) {
