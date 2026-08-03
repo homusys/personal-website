@@ -246,9 +246,7 @@ iconsHandler
 
 // Certifications Link Animation
 const certificationsLink = document.querySelector("#certificationsLink");
-const animateDiv = document.querySelector("#certLinkAnimation");
-
-const delay = "2s";
+const certLinkAnimation = document.querySelector("#certLinkAnimation");
 
 for (let i = 0; i < 100; ++i) {
   const circle__container = document.createElement("div");
@@ -261,5 +259,21 @@ for (let i = 0; i < 100; ++i) {
 
   circle__container.appendChild(circle);
 
-  animateDiv.appendChild(circle__container);
+  certLinkAnimation.appendChild(circle__container);
+}
+
+// Projects Link Animation
+const projLinkAnimation = document.querySelector("#projLinkAnimation");
+for (let i = 0; i < 50; ++i) {
+  const square__container = document.createElement("div");
+  square__container.classList.add("square__container");
+
+  const square = document.createElement("div");
+  square.classList.add("square");
+
+  square.style.animationDelay = `${Math.random() * 10}s`;
+
+  square__container.appendChild(square);
+
+  projLinkAnimation.appendChild(square__container);
 }
