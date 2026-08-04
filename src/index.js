@@ -3,11 +3,27 @@ import { IconHandler } from "./assets/icons/icons.js";
 import { goldenAppleImage } from "./assets/images/images.js";
 import profilePic from "./assets/images/profile.png";
 import { default as resumePDF } from "./Carl_Matthew_Arzadon_Resume.pdf";
+import DotGridAnimation from "./components/link_button/animations/dot_grid.js";
 
 /**
  * The DOMHandler class is responsible for all the DOM operations.
  */
 class DomHandler {
+  constructor() {
+    this.#renderAnimations();
+  }
+
+  #renderAnimations() {
+    document
+      .querySelectorAll(".animation-dot_grid")
+      .forEach((elem, key, number) => {
+        new DotGridAnimation({
+          elementRef: elem,
+          delay: 3,
+        });
+      });
+  }
+
   /**
    *
    * @param {*} buttonId A CSS selector string of the target button's id attribute.
@@ -243,24 +259,6 @@ iconsHandler
     const resumeLink = document.querySelector("#resumeLink");
     resumeLink.setAttribute("href", resumePDF);
   });
-
-// Certifications Link Animation
-const certificationsLink = document.querySelector("#certificationsLink");
-const certLinkAnimation = document.querySelector("#certLinkAnimation");
-
-for (let i = 0; i < 100; ++i) {
-  const circle__container = document.createElement("div");
-  circle__container.classList.add("circle__container");
-
-  const circle = document.createElement("div");
-  circle.classList.add("circle");
-
-  circle.style.animationDelay = `${Math.random() * 2}s`;
-
-  circle__container.appendChild(circle);
-
-  certLinkAnimation.appendChild(circle__container);
-}
 
 // Projects Link Animation
 const projLinkAnimation = document.querySelector("#projLinkAnimation");
