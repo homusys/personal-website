@@ -5,6 +5,7 @@ import profilePic from "./assets/images/profile.png";
 import { default as resumePDF } from "./Carl_Matthew_Arzadon_Resume.pdf";
 import DotGridAnimation from "./components/link_button/animations/dot_grid.js";
 import RectGridAnimation from "./components/link_button/animations/rect_grid.js";
+import TippyToesAnimation from "./components/animated_text/animations/tippy_toes.js";
 
 /**
  * The DOMHandler class is responsible for all the DOM operations.
@@ -32,6 +33,15 @@ class DomHandler {
         new RectGridAnimation({
           elementRef: elem,
           delay: 9,
+        });
+      });
+
+    document
+      .querySelectorAll(".animation-tippy_toes")
+      .forEach((elem, key, number) => {
+        new TippyToesAnimation({
+          elementRef: elem,
+          heightIncrease: 1,
         });
       });
   }
