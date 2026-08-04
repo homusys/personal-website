@@ -47,17 +47,15 @@ export default class TippyToesAnimation {
   }
 
   render() {
-    const textArr = this.convertTextToArray(this.#elementReference.textContent);
-    this.#elementReference.textContent = "";
+    const textArr = this.convertTextToArray(
+      this.#elementReference.textContent.trim(),
+    );
 
-    console.log(textArr);
+    this.#elementReference.textContent = "";
 
     const spanArray = this.putArrayLettersToSpan(textArr);
 
-    console.log(spanArray);
-
     spanArray.forEach((span, index) => {
-      // span.style.animationDelay = `${index * 130}ms`;
       span.style.setProperty("--delay", `${index * 130}ms`);
       this.#elementReference.appendChild(span);
     });
