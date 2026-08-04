@@ -4,6 +4,7 @@ import { goldenAppleImage } from "./assets/images/images.js";
 import profilePic from "./assets/images/profile.png";
 import { default as resumePDF } from "./Carl_Matthew_Arzadon_Resume.pdf";
 import DotGridAnimation from "./components/link_button/animations/dot_grid.js";
+import RectGridAnimation from "./components/link_button/animations/rect_grid.js";
 
 /**
  * The DOMHandler class is responsible for all the DOM operations.
@@ -21,6 +22,15 @@ class DomHandler {
         new DotGridAnimation({
           elementRef: elem,
           delay: 3,
+        });
+      });
+
+    document
+      .querySelectorAll(".animation-rect_grid")
+      .forEach((elem, key, number) => {
+        new RectGridAnimation({
+          elementRef: elem,
+          delay: 9,
         });
       });
   }
@@ -281,19 +291,3 @@ iconsHandler
     const resumeLink = document.querySelector("#resumeLink");
     resumeLink.setAttribute("href", resumePDF);
   });
-
-// Projects Link Animation
-const projLinkAnimation = document.querySelector("#projLinkAnimation");
-for (let i = 0; i < 50; ++i) {
-  const square__container = document.createElement("div");
-  square__container.classList.add("square__container");
-
-  const square = document.createElement("div");
-  square.classList.add("square");
-
-  square.style.animationDelay = `${Math.random() * 10}s`;
-
-  square__container.appendChild(square);
-
-  projLinkAnimation.appendChild(square__container);
-}
