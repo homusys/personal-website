@@ -21,6 +21,7 @@ class DomHandler {
       .forEach((elem, key, number) => {
         new DotGridAnimation({
           elementRef: elem,
+          cellSize: 24,
           delay: 3,
         });
       });

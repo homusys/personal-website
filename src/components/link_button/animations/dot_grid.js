@@ -1,14 +1,16 @@
 export default class DotGridAnimation {
   #elementReference;
+  #cellSize;
   #delay;
   #observer;
-  constructor({ elementRef, delay = 2 }) {
+  constructor({ elementRef, cellSize, delay = 2 }) {
     try {
       this.#elementReference = elementRef;
       if (!this.#elementReference) {
         throw Error(`The link button with uid:${uid} has no valid references`);
       }
       this.#delay = delay;
+      this.#cellSize = cellSize;
 
       this.render();
 
@@ -28,11 +30,11 @@ export default class DotGridAnimation {
     const width = this.#elementReference.clientWidth;
     const height = this.#elementReference.clientHeight;
 
-    const computedStyles = getComputedStyle(this.#elementReference);
-    const cellSize = parseInt(computedStyles.getPropertyValue("--cell-size"));
+    const cols = Math.ceil(width / this.#cellSize);
+    const rows = Math.ceil(height / this.#cellSize);
 
-    const cols = Math.ceil(width / cellSize);
-    const rows = Math.ceil(height / cellSize);
+    this.#elementReference.style.setProperty("--cols", cols);
+    this.#elementReference.style.setProperty("--rows", rows);
 
     for (let count = 0; count < cols * rows; ++count) {
       const circle__container = document.createElement("div");
