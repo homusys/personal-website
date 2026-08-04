@@ -10,6 +10,7 @@ import DotGridAnimation from "./components/link_button/animations/dot_grid.js";
  */
 class DomHandler {
   constructor() {
+    this.#initMouseBehaviour();
     this.#renderAnimations();
   }
 
@@ -22,6 +23,27 @@ class DomHandler {
           delay: 3,
         });
       });
+  }
+
+  #initMouseBehaviour() {
+    const mouseGlow = document.querySelector("#mouseGlow");
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener("mousemove", (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+    });
+
+    function renderMouseGradient() {
+      mouseGlow.style.setProperty("--mouse-x", `${mouseX}px`);
+      mouseGlow.style.setProperty("--mouse-y", `${mouseY}px`);
+
+      requestAnimationFrame(renderMouseGradient);
+    }
+
+    renderMouseGradient();
   }
 
   /**
