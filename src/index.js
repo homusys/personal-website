@@ -1,6 +1,6 @@
 import "./assets/styles/style.css";
 import { IconHandler } from "./assets/icons/icons.js";
-import { goldenAppleImage } from "./assets/images/images.js";
+import { goldenAppleImage, favicon } from "./assets/images/images.js";
 import profilePic from "./assets/images/profile.png";
 import { default as resumePDF } from "./Carl_Matthew_Arzadon_Resume.pdf";
 import DotGridAnimation from "./components/link_button/animations/dot_grid.js";
@@ -12,8 +12,17 @@ import TippyToesAnimation from "./components/animated_text/animations/tippy_toes
  */
 class DomHandler {
   constructor() {
+    this.#setFavicon();
     this.#initMouseBehaviour();
     this.#renderAnimations();
+  }
+
+  #setFavicon() {
+    const faviconElement = document.createElement("link");
+    faviconElement.setAttribute("rel", "icon");
+    faviconElement.setAttribute("type", "image/x-icon");
+    faviconElement.setAttribute("href", favicon);
+    document.head.appendChild(faviconElement);
   }
 
   #renderAnimations() {
