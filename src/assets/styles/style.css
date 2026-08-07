@@ -47,6 +47,17 @@ ul {
   list-style-type: none;
 }
 
+.curtain__cell {
+  width: calc(100% + 1px);
+  height: calc(100% + 1px);
+  background-color: var(--green-1);
+}
+
+.curtain__cell.hidden {
+  animation: curtainFade 400ms forwards;
+  animation-delay: var(--delay);
+}
+
 .font-display {
   font-family: "Bungee", sans-serif;
   font-weight: 400;
@@ -467,6 +478,21 @@ ul {
   pointer-events: none;
 }
 
+#curtains {
+  --rows: 10;
+  --cols: 10;
+
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  height: 100dvh;
+  z-index: 999;
+}
+
 @media screen and (width >= 48rem) {
   .wrapper,
   .header {
@@ -501,5 +527,12 @@ ul {
   50% {
     transform: translateY(-6px);
     color: var(--tertiary);
+  }
+}
+
+@keyframes curtainFade {
+  to {
+    transform: scale(0) rotate(30deg);
+    border-radius: 50%;
   }
 }

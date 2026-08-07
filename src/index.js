@@ -12,9 +12,42 @@ import TippyToesAnimation from "./components/animated_text/animations/tippy_toes
  */
 class DomHandler {
   constructor() {
+    this.#riseCurtains();
     this.#setFavicon();
     this.#initMouseBehaviour();
     this.#renderAnimations();
+  }
+
+  #riseCurtains() {
+    // Curtains behaviour
+    const curtains = document.querySelector("#curtains");
+
+    const width = curtains.clientWidth;
+    const height = curtains.clientHeight;
+
+    let COLS = Math.floor(width / 100);
+    let ROWS = Math.floor(height / 100);
+
+    curtains.style.setProperty("--cols", COLS);
+    curtains.style.setProperty("--rows", ROWS);
+
+    for (let i = 0; i < ROWS * COLS; ++i) {
+      const newDiv = document.createElement("div");
+      newDiv.classList.add("curtain__cell");
+      curtains.appendChild(newDiv);
+    }
+
+    let fadeDuration = 0;
+    for (let curtainCells of Array.from(curtains.children).reverse()) {
+      curtainCells.classList.add("hidden");
+      curtainCells.style.setProperty("--delay", `${fadeDuration}ms`);
+
+      fadeDuration += 4;
+    }
+
+    setTimeout(() => {
+      document.body.removeChild(curtains);
+    }, fadeDuration + 400);
   }
 
   #setFavicon() {
