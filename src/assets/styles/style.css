@@ -493,6 +493,24 @@ ul {
   z-index: 999;
 }
 
+#wip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+}
+
+#wip > a {
+  color: var(--white);
+}
+
+#wip > a:hover,
+#wip > a:active {
+  color: var(--tertiary);
+}
+
 @media screen and (width >= 48rem) {
   .wrapper,
   .header {

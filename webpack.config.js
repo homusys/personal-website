@@ -19,8 +19,8 @@ export default {
       template: "./src/index.html",
     }),
     new HtmlWebpackPlugin({
-      filename: "pages/projects.html",
-      template: "./src/pages/projects.html",
+      filename: "pages/wip.html",
+      template: "./src/pages/wip.html",
     }),
   ],
   devtool: "eval-source-map",
