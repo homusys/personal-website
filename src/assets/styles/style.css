@@ -354,11 +354,22 @@ ul {
   }
 }
 
+.tippy-toes-lite {
+  transition:
+    transform 200ms ease,
+    color 200ms ease;
+}
+
+.tippy-toes-lite:hover {
+  transform: translateY(-6px);
+  color: var(--tertiary);
+}
+
 .animation-tippy_toes {
   display: flex;
 }
 
-.animation-tippy_toes.running > span {
+.animation-tippy_toes.running > span:not(:hover) {
   animation: tiptoe 300ms ease;
   animation-delay: var(--delay);
 }
