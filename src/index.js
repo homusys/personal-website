@@ -25,8 +25,14 @@ class DomHandler {
     const width = curtains.clientWidth;
     const height = curtains.clientHeight;
 
-    let COLS = Math.floor(width / 100);
-    let ROWS = Math.floor(height / 100);
+    let cellSize = 100;
+
+    if (width < 700) {
+      cellSize = 60;
+    }
+
+    let COLS = Math.floor(width / cellSize);
+    let ROWS = Math.floor(height / cellSize);
 
     curtains.style.setProperty("--cols", COLS);
     curtains.style.setProperty("--rows", ROWS);
