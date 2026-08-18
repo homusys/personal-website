@@ -1,23 +1,28 @@
 {
-  "name": "personal-website",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "Carl Matthew T. Arzadon",
+  "name": "perosnal-website",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "webpack serve --open",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^8.3.0"
+  },
   "devDependencies": {
-    "css-loader": "^7.1.4",
-    "html-webpack-plugin": "^5.6.7",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.107.2",
-    "webpack-cli": "^7.0.3",
-    "webpack-dev-server": "^5.2.5"
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "gh-pages": "^6.3.0",
+    "oxlint": "^1.75.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
   }
 }

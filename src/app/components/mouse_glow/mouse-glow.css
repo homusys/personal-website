@@ -1,0 +1,16 @@
+#mouseGlow {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    #bf3f6c,
+    transparent 175px
+  );
+  filter: blur(75px);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}

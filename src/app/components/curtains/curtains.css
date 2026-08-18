@@ -1,0 +1,31 @@
+.curtain__cell {
+  width: calc(100% + 1px);
+  height: calc(100% + 1px);
+  background-color: var(--green-1);
+}
+
+.curtain__cell.hidden {
+  animation: curtainFade 400ms forwards;
+}
+
+#curtains {
+  --rows: 10;
+  --cols: 10;
+
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  height: 100dvh;
+  z-index: 999;
+}
+
+@keyframes curtainFade {
+  to {
+    transform: scale(0) rotate(30deg);
+    border-radius: 50%;
+  }
+}

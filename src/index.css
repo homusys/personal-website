@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Quicksand:wght@300..700&display=swap");
+
+:root {
+  --black: #08080c;
+  --white: #f5f5f7;
+  --primary: #12121a;
+  --secondary: #6e4ba8;
+  --tertiary: #efff42;
+  --accent: #d4af37;
+
+  --green-1: #81cd47;
+  --green-2: #52b534;
+  --green-3: #3b913a;
+
+  --common-border-radius: 6px;
+  --common-border: 1px solid var(--secondary-light);
+  --common-gap: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Default Font */
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.font-display {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-header {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.box__shadow {
+  box-shadow: 0px 5px 5px black;
+}
+
+.text__shadow {
+  text-shadow: 0px 5px 5px black;
+}
+
+.icon__shadow {
+  filter: drop-shadow(0 5px 5px black);
+}
+
+.icon {
+  aspect-ratio: 1/1;
+
+  &.icon--size-s {
+    width: 16px;
+  }
+
+  &.icon--size-m {
+    width: 24px;
+  }
+
+  &.icon--size-l {
+    width: 32px;
+  }
+}
+
+.icon__button {
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--common-border);
+  border-radius: var(--common-border-radius);
+
+  &.icon__button--size-s {
+    width: 16px;
+  }
+
+  &.icon__button--size-m {
+    width: 24px;
+  }
+
+  &.icon__button--size-l {
+    width: 38px;
+  }
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
