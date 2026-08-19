@@ -1,8 +1,8 @@
-import { createBrowserRouter } from "react-router";
+import { createHashRouter } from "react-router";
 import Home from "./my_home/home";
 import WIP from "./wip/wip";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     Component: Home,
