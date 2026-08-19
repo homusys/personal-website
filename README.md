@@ -14,6 +14,6 @@ Just my personal portfolio website 😉. Hosted on GitHub Pages.
 
 #### Major Changes
 
-Migrated the codebase from Plain HTML, CSS, JavaScript to React because I want parts of my app to be components that are reusable and self-contained.
+Migrated the codebase from Plain HTML, CSS, JavaScript to React and TypeScript because I want parts of my app to be components that are reusable and self-contained.
 
 Also, Migrated from Webpack to Vite because Webpack is overkill just my small app with all its configurations.
