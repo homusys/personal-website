@@ -1,0 +1,67 @@
+.experience__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (width >= 48rem) {
+    width: 50vw;
+  }
+
+  @media screen and (width >= 64rem) {
+    width: 30vw;
+  }
+}
+
+.experience__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience__header {
+  display: flex;
+  flex-direction: row;
+}
+
+.experience__filter__button__group {
+  background-color: var(--secondary);
+  display: flex;
+  flex-direction: row;
+  padding: 4px 8px;
+  border-radius: var(--common-border-radius);
+  position: relative;
+  z-index: 0;
+}
+
+.experience__filter__button__group > * {
+  flex: 1 1 0;
+}
+
+.experience__filter__button__group > button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.experience__filter__button__group > button:hover {
+  background-color: transparent;
+  filter: invert(50%);
+}
+
+.experience__filter__button__group p {
+  user-select: none;
+}
+
+.experience__filter__button__group > div.highlighter {
+  background-color: var(--tertiary);
+  border: 0;
+  border-radius: 25%;
+  position: absolute;
+
+  transform: rotate(-12deg);
+  transition:
+    top 250ms ease-out,
+    left 250ms ease-out;
+  z-index: 1;
+
+  pointer-events: none;
+}
