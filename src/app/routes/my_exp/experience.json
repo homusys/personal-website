@@ -6,7 +6,7 @@
     "location": "Baguio City, Philippines",
     "start_date": "2025-06",
     "end_date": "2025-08",
-    "description": "Developed and maintained web applications for internal use.",
+    "description": "Developed a web app for simplifying the recruitment and hiring process, making it easier for staff to manage applicants through a centralized system.",
     "responsibilities": [],
     "technologies": [
       "HTML",
@@ -44,7 +44,7 @@
     "location": "Urdaneta City, Pangasinan, Philippines",
     "start_date": "2024-03",
     "end_date": "2024-04",
-    "description": "Built a desktop grading system software for teachers to record and calculate student grades.",
+    "description": "Built a desktop grading system software for teachers to record, calculate, and print student grades to reduce user errors and save time compared to manual spreadsheet operations.",
     "responsibilities": [],
     "technologies": [
       "Python",
