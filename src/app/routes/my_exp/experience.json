@@ -44,18 +44,25 @@
     "location": "Urdaneta City, Pangasinan, Philippines",
     "start_date": "2024-03",
     "end_date": "2024-04",
-    "description": "Built a desktop grading system for teachers to record and calculate student grades.",
+    "description": "Built a desktop grading system software for teachers to record and calculate student grades.",
     "responsibilities": [],
-    "technologies": ["Python", "PyQt5", "SQLite", "SQL Alchemy"]
+    "technologies": [
+      "Python",
+      "PyQt5",
+      "SQLite",
+      "SQL Alchemy",
+      "Git",
+      "GitHub"
+    ]
   },
   {
-    "title": "QR Attendance Tracker",
+    "title": "QR-based Attendance Tracker",
     "organization": "Pangasinan State University - Urdaneta Campus",
     "type": "academic",
     "location": "Urdaneta City, Pangasinan, Philippines",
     "start_date": "2024-03",
     "end_date": "2024-04",
-    "description": "Built a desktop grading system software for teachers to record and calculate student grades and generate QR Codes. Uses an ESP32-CAM to scan QR Code",
+    "description": "Built a desktop app that keeps track of student attendance, generate and print QR code, and communicate with an ESP32-CAM development board for scanning QR code via sockets.",
     "responsibilities": [],
     "technologies": [
       "Python",
@@ -63,7 +70,9 @@
       "SQLite",
       "SQL Alchemy",
       "OpenCV",
-      "ESP32-CAM"
+      "ESP32-CAM",
+      "Git",
+      "GitHub"
     ]
   },
   {
@@ -73,19 +82,34 @@
     "location": "Urdaneta City, Pangasinan, Philippines",
     "start_date": "2024-03",
     "end_date": "2024-04",
-    "description": "",
+    "description": "Built a balancing robot that should balance a cup full of water without spilling for my Control Systems class (3rd yr).",
     "responsibilities": [],
-    "technologies": ["KiCad 8"]
+    "technologies": [
+      "KiCad 8",
+      "Electronics Design",
+      "MPU-6050",
+      "Schematic Capture",
+      "PCB Layout",
+      "ESP32",
+      "Soldering",
+      "Git"
+    ]
   },
   {
-    "title": "2-Bit Analog-to-Digital Converter",
+    "title": "2-bit Analog-to-Digital Converter",
     "organization": "Pangasinan State University - Urdaneta Campus",
     "type": "academic",
     "location": "Urdaneta City, Pangasinan, Philippines",
     "start_date": "2024-03",
     "end_date": "2024-04",
-    "description": "Built a 2-Bit Analog-to-Digital Converter from scratch.",
+    "description": "Built a simple 2-bit Analog-to-Digital Converter from scratch for my Signals class (4th yr).",
     "responsibilities": [],
-    "technologies": ["KiCad 8"]
+    "technologies": [
+      "KiCad 8",
+      "Electronics Design",
+      "Soldering",
+      "Schematic Capture",
+      "PCB Layout"
+    ]
   }
 ]
