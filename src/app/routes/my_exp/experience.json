@@ -1,0 +1,91 @@
+[
+  {
+    "title": "Web Developer Intern",
+    "organization": "Department of the Interior and Local Government - CAR",
+    "type": "work",
+    "location": "Baguio City, Philippines",
+    "start_date": "2025-06",
+    "end_date": "2025-08",
+    "description": "Developed and maintained web applications for internal use.",
+    "responsibilities": [],
+    "technologies": [
+      "HTML",
+      "PHP",
+      "JavaScript",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS",
+      "Git",
+      "GitHub"
+    ]
+  },
+  {
+    "title": "Embedded Systems Programmer, Freelance",
+    "organization": "Electrical Engineering Thesis Project",
+    "type": "work",
+    "location": "Urdaneta City, Pangasinan, Philippines",
+    "start_date": "2024-03",
+    "end_date": "2024-04",
+    "description": "Developed the embedded control system for an automated traffic management project in collaboration with Electrical Engineering students.",
+    "responsibilities": [],
+    "technologies": [
+      "Arduino R3",
+      "ESP32",
+      "NRF24L01",
+      "C/C++",
+      "KiCad 8",
+      "Git"
+    ]
+  },
+  {
+    "title": "Grading System",
+    "organization": "Pangasinan State University - Urdaneta Campus",
+    "type": "academic",
+    "location": "Urdaneta City, Pangasinan, Philippines",
+    "start_date": "2024-03",
+    "end_date": "2024-04",
+    "description": "Built a desktop grading system for teachers to record and calculate student grades.",
+    "responsibilities": [],
+    "technologies": ["Python", "PyQt5", "SQLite", "SQL Alchemy"]
+  },
+  {
+    "title": "QR Attendance Tracker",
+    "organization": "Pangasinan State University - Urdaneta Campus",
+    "type": "academic",
+    "location": "Urdaneta City, Pangasinan, Philippines",
+    "start_date": "2024-03",
+    "end_date": "2024-04",
+    "description": "Built a desktop grading system software for teachers to record and calculate student grades and generate QR Codes. Uses an ESP32-CAM to scan QR Code",
+    "responsibilities": [],
+    "technologies": [
+      "Python",
+      "PyQt5",
+      "SQLite",
+      "SQL Alchemy",
+      "OpenCV",
+      "ESP32-CAM"
+    ]
+  },
+  {
+    "title": "Balancing Robot",
+    "organization": "Pangasinan State University - Urdaneta Campus",
+    "type": "academic",
+    "location": "Urdaneta City, Pangasinan, Philippines",
+    "start_date": "2024-03",
+    "end_date": "2024-04",
+    "description": "",
+    "responsibilities": [],
+    "technologies": ["KiCad 8"]
+  },
+  {
+    "title": "2-Bit Analog-to-Digital Converter",
+    "organization": "Pangasinan State University - Urdaneta Campus",
+    "type": "academic",
+    "location": "Urdaneta City, Pangasinan, Philippines",
+    "start_date": "2024-03",
+    "end_date": "2024-04",
+    "description": "Built a 2-Bit Analog-to-Digital Converter from scratch.",
+    "responsibilities": [],
+    "technologies": ["KiCad 8"]
+  }
+]
