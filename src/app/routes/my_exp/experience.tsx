@@ -33,15 +33,33 @@ export default function Experiences() {
         </div>
         <ExperienceFilterButtonGroup onChangeFilter={setFilter} />
         <ExperienceMain>
-          {experienceData.map((data, index) => {
-            if (
-              (filter !== "all" && filter === data.type) ||
-              filter === "all"
-            ) {
-              return <ExperienceItem key={index} data={data} />;
-            }
-            return null;
-          })}
+          {experienceData
+            .sort((a: Experience, b: Experience) => {
+              const aStartYear: number = Number(a.start_date.substring(0, 4));
+              const aStartDay: number = Number(a.start_date.substring(5));
+
+              const bStartYear: number = Number(b.start_date.substring(0, 4));
+              const bStartDay: number = Number(b.start_date.substring(5));
+
+              let result = 0;
+              result = aStartYear - bStartYear;
+
+              if (result === 0) {
+                result = aStartDay - bStartDay;
+              }
+
+              return result;
+            })
+            .reverse()
+            .map((data, index) => {
+              if (
+                (filter !== "all" && filter === data.type) ||
+                filter === "all"
+              ) {
+                return <ExperienceItem key={index} data={data} />;
+              }
+              return null;
+            })}
         </ExperienceMain>
       </div>
     </>
