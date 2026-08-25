@@ -14,13 +14,12 @@ export default function Home() {
       <MouseGlow />
       <div className="wrapper">
         <NavBar />
-
         <HeroSection />
         <AboutSection />
         <TechStackSection />
-        <BigLink text="Experiences" />
-        <BigLink text="Certifications" />
-        <BigLink text="Projects" />
+        <BigLink text="Experiences" path="/experiences" />
+        <BigLink text="Certifications" path="/certifications" />
+        <BigLink text="Projects" path="/projects" />
       </div>
     </>
   );
@@ -166,7 +165,7 @@ function TechStackSection() {
   );
 }
 
-function BigLink({ text }: { text: string }) {
+function BigLink({ text, path }: { text: string; path: string }) {
   const DELAY = 2;
   const animationContainer = useRef<HTMLDivElement>(null);
   const [cellCount, setCellCount] = useState(0);
@@ -191,7 +190,7 @@ function BigLink({ text }: { text: string }) {
   }, []);
 
   return (
-    <Link to="/wip" className="big__link box__shadow">
+    <Link to={path} className="big__link box__shadow">
       <h3 className="font-header">{text}</h3>
       <div ref={animationContainer} className="animation-rect_grid">
         {Array.from({ length: cellCount }, (_, index) => (

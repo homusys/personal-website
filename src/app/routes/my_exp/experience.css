@@ -1,6 +1,7 @@
 .experience__wrapper {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 
   @media screen and (width >= 48rem) {
     width: 50vw;
@@ -64,4 +65,67 @@
   z-index: 1;
 
   pointer-events: none;
+}
+
+.experience__main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.experience__item {
+  background-color: var(--white);
+  border-radius: var(--common-border-radius);
+  color: var(--black);
+  padding: 1vw;
+  z-index: 1;
+}
+
+.experience__item > .item__group {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.experience__item > .item__description {
+  padding-top: 1rem;
+  padding-bottom: 0.2rem;
+}
+
+.experience__item .icon__span {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  color: gray;
+  fill: gray;
+}
+
+.experience__item .item__technologies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.experience__item .technology__item {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  background-color: var(--secondary);
+  border-radius: 16px;
+  color: var(--white);
+  padding: 2px 12px;
+  user-select: none;
+  transition:
+    transform 300ms ease-out,
+    opacity 300ms ease;
+}
+
+.experience__item .technology__item:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.experience__item .technology__item:not(:hover) {
+  opacity: 0.85;
 }
