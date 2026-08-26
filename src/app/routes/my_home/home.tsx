@@ -17,9 +17,13 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <TechStackSection />
-        <BigLink text="Experiences" path="/experiences" />
-        <BigLink text="Certifications" path="/certifications" />
-        <BigLink text="Projects" path="/projects" />
+        <BigLink id="experiencesBtn" text="Experiences" path="/experiences" />
+        <BigLink
+          id="certificationsBtn"
+          text="Certifications"
+          path="/certifications"
+        />
+        <BigLink id="projectsBtn" text="Projects" path="/projects" />
       </div>
     </>
   );
@@ -165,7 +169,15 @@ function TechStackSection() {
   );
 }
 
-function BigLink({ text, path }: { text: string; path: string }) {
+function BigLink({
+  id,
+  text,
+  path,
+}: {
+  id: string;
+  text: string;
+  path: string;
+}) {
   const DELAY = 2;
   const animationContainer = useRef<HTMLDivElement>(null);
   const [cellCount, setCellCount] = useState(0);
@@ -190,7 +202,7 @@ function BigLink({ text, path }: { text: string; path: string }) {
   }, []);
 
   return (
-    <Link to={path} className="big__link box__shadow">
+    <Link id={id} to={path} className="big__link box__shadow">
       <h3 className="font-header">{text}</h3>
       <div ref={animationContainer} className="animation-rect_grid">
         {Array.from({ length: cellCount }, (_, index) => (

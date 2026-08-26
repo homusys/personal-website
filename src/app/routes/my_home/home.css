@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 0 22px;
+  padding: 2vh 22px;
   position: relative;
 
   @media screen and (width >= 48rem) {
@@ -11,7 +11,10 @@
   }
 
   @media screen and (width >= 64rem) {
-    width: 30vw;
+    display: grid;
+    width: 80vw;
+    padding: 2vh 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -19,14 +22,25 @@
   display: grid;
   align-items: start;
   grid-template-columns: repeat(4, 1fr);
-  margin-top: 71px;
+  margin-top: 8vh;
   width: 100%;
+
+  @media screen and (width >= 64rem) {
+    margin-top: 0;
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 1;
+  }
 }
 
 .hero__pic {
   display: flex;
   flex-direction: column;
   grid-column: 1 / span 4;
+
+  @media screen and (width >= 64rem) {
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 3;
+  }
 }
 
 .hero__intro {
@@ -37,14 +51,28 @@
   grid-column: 1 / span 4;
   margin-top: var(--common-gap);
   user-select: none;
+
+  @media screen and (width >= 64rem) {
+    font-size: 2rem;
+    grid-column: 1 / span 3;
+    align-self: end;
+  }
 }
 
 .hero__roles {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  text-align: center;
   grid-column: 1 / span 4;
   user-select: none;
+
+  @media screen and (width >= 64rem) {
+    font-size: 1.5rem;
+    grid-column: 1 / span 3;
+    grid-row: 2 / span 1;
+    align-self: center;
+  }
 }
 
 .hero__links {
@@ -54,6 +82,12 @@
   grid-column: 1 / span 4;
   gap: 8px;
   flex-wrap: wrap;
+  align-self: start;
+
+  @media screen and (width >= 64rem) {
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 1;
+  }
 }
 
 .hero__link {
@@ -85,16 +119,23 @@
   background-color: var(--white);
   border-radius: var(--common-border-radius);
   color: var(--black);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
   padding: 12px;
   width: 100%;
+
+  @media screen and (width >= 64rem) {
+    height: 100%;
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
 }
 
 .about__header {
   display: flex;
   justify-content: center;
   grid-column: 1 / span 4;
+  grid-row: 1 / span 4;
 }
 
 .about__text {
@@ -109,6 +150,12 @@
   flex-direction: column;
   padding: 12px;
   width: 100%;
+
+  @media screen and (width >= 64rem) {
+    height: 100%;
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
+  }
 }
 
 .stack__header {
@@ -229,6 +276,10 @@
   overflow: hidden;
 
   transition: all ease-in 80ms;
+
+  @media screen and (width >= 64rem) {
+    height: 100%;
+  }
 }
 
 .big__link > .font-header {
