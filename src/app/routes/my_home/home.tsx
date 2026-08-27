@@ -117,10 +117,30 @@ function AboutSection() {
   return (
     <section className="about box__shadow">
       <h2 className="about__header font-header">About me</h2>
-      <p className="about__text">
-        I'm a fullstack developer with a strong focus on building practical and
-        user-focused web applications.
-      </p>
+      <div className="about__text">
+        <p>
+          I'm a <strong>Computer Engineer</strong> and{" "}
+          <strong>developer</strong> who cares about both the product people use
+          and the work behind it. I <em>enjoy</em> building things that are both
+          functional and that people genuinely want to use.
+        </p>
+        <br />
+        <p>
+          I'm a firm believer in having a <strong>growth mindset</strong>. I
+          treat every project as a <em>possibility</em> to learn something new
+          and challenge myself, which is why I am <em>open</em> to any
+          opportunity where I can put my skills and knowledge into practice
+          while continuing to learn and grow.
+        </p>
+        <br />
+        <p>
+          Beyond software development, I have a <strong>strong interest</strong>{" "}
+          in electronics and hardware, which is mainly the reason I chose
+          Computer Engineering. I also value books as a way to <em>explore</em>{" "}
+          new ideas, while gaming is one of my favorite ways to relax and have
+          fun.
+        </p>
+      </div>
     </section>
   );
 }
