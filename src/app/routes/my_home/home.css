@@ -7,12 +7,12 @@
   position: relative;
 
   @media screen and (width >= 48rem) {
-    width: 50vw;
+    max-width: 50vw;
   }
 
   @media screen and (width >= 64rem) {
     display: grid;
-    width: 80vw;
+    max-width: 80vw;
     padding: 2vh 0;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -162,7 +162,7 @@
   width: 100%;
 
   @media screen and (width >= 64rem) {
-    height: 100%;
+    min-height: 100%;
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
   }
@@ -195,79 +195,11 @@
 .stack__item {
   display: flex;
   justify-content: center;
-  width: fit-content;
+  max-width: fit-content;
   background-color: var(--secondary);
   border-radius: 16px;
   color: var(--white);
   padding: 2px 12px;
-}
-
-.experience {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.experience__header {
-  display: flex;
-  justify-content: center;
-  grid-column: 1 / span 4;
-}
-
-.experience__collection {
-  display: flex;
-  flex-direction: row;
-  grid-column: 1 / span 4;
-}
-
-.exp__card {
-  background-color: var(--tertiary);
-  border-radius: calc(var(--common-border-radius) + 2px);
-
-  color: var(--black);
-
-  display: flex;
-  flex-direction: column;
-  height: min-content;
-}
-
-.card__image {
-  height: 12vh;
-}
-
-.card__image > img {
-  border-top-left-radius: var(--common-border-radius);
-  border-top-right-radius: var(--common-border-radius);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card__details {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: 12px;
-}
-
-.tech__used {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 4px;
-  justify-content: flex-start;
-  padding: 12px;
-}
-
-.card__link {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: var(--black);
-  border-bottom-left-radius: var(--common-border-radius);
-  border-bottom-right-radius: var(--common-border-radius);
-  color: var(--white);
-  padding: 8px 0;
-  text-decoration: none;
 }
 
 .big__link {
@@ -288,7 +220,7 @@
   transition: all ease-in 80ms;
 
   @media screen and (width >= 64rem) {
-    height: 100%;
+    min-height: 100%;
   }
 }
 
@@ -349,7 +281,7 @@
 .circle {
   border-radius: 50%;
   background-color: var(--secondary);
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   opacity: 0;
 
@@ -382,7 +314,7 @@
 
 .rect {
   background-color: var(--secondary);
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   opacity: 0;
 
@@ -392,8 +324,8 @@
 }
 
 #profilePic {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  min-height: 100%;
   filter: drop-shadow(0px 5px 5px black);
   border-radius: var(--common-border-radius);
 }
