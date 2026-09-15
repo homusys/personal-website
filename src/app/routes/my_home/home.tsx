@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router";
 
 import profileImg from "../../../assets/profile.png";
@@ -6,6 +6,8 @@ import Curtains from "../../components/curtains/curtains";
 import MouseGlow from "../../components/mouse_glow/mouse-glow";
 import AppLayout from "../../layouts/app_layout/app_layout";
 import "./home.css";
+
+import experienceData from "./experience.json";
 
 export default function Home() {
 	const FULLNAME = "Carl Arzadon";
@@ -49,6 +51,7 @@ export default function Home() {
 					heroRoles={ROLES}
 					heroIntroduction={INTRO}
 				/>
+				<ExperienceSection />
 				{/* <TechStackSection /> */}
 				<BigLink id="experiencesBtn" text="Experiences" path="/experiences" />
 			</AppLayout>
@@ -153,6 +156,131 @@ function HeroSection({
 				/>
 			</div>
 		</section>
+	);
+}
+
+type FilterType = "work" | "academic";
+
+type Experience = {
+	title: string;
+	organization: string;
+	type: string;
+	location: string;
+	start_date: string;
+	end_date: string;
+	description: string;
+	responsibilities: string[];
+	technologies: string[];
+};
+
+function ExperienceSection() {
+	const [filter, setFilter] = useState<FilterType>("work");
+
+	const experienceNode = experienceData
+		.sort((a: Experience, b: Experience) => {
+			const aStartYear = Number(a.start_date.substring(0, 4));
+			const aStartDay = Number(a.start_date.substring(5));
+
+			const bStartYear = Number(b.start_date.substring(0, 4));
+			const bStartDay = Number(b.start_date.substring(5));
+
+			let result = 0;
+			result = aStartYear - bStartYear;
+
+			if (result === 0) {
+				result = aStartDay - bStartDay;
+			}
+
+			return result;
+		})
+		.reverse()
+		.map((data: Experience, index: number) => {
+			return filter === data.type && <ExperienceItem key={index} data={data} />;
+		});
+
+	return (
+		<section className="experience">
+			<ExperienceFilterButtonGroup
+				filterState={filter}
+				updateFilter={(newVal) => setFilter(newVal)}
+			/>
+			{experienceNode}
+		</section>
+	);
+}
+
+type ExperienceFilterButtonGroupProps = {
+	filterState: FilterType;
+	updateFilter: (newVal: FilterType) => void;
+};
+
+function ExperienceFilterButtonGroup({
+	filterState,
+	updateFilter,
+}: ExperienceFilterButtonGroupProps) {
+	function onClickHandle(event: React.MouseEvent<HTMLButtonElement>) {
+		const index = Number(event.currentTarget.dataset.index);
+		updateFilter((["work", "academic"] as FilterType[])[index]);
+	}
+
+	return (
+		<div className="experience__filter__button__group">
+			<button
+				data-index={0}
+				className={`${filterState === "work" ? "active" : ""}`}
+				onClick={onClickHandle}
+			>
+				Work
+			</button>
+			<button
+				data-index={1}
+				className={`${filterState === "academic" ? "active" : ""}`}
+				onClick={onClickHandle}
+			>
+				Academic
+			</button>
+		</div>
+	);
+}
+
+type ExperienceItemProps = {
+	data: Experience;
+};
+
+function ExperienceItem({ data }: ExperienceItemProps) {
+	return (
+		<div className="experience__item box__shadow">
+			<h3 className="item__title">{data.title}</h3>
+			<div className="item__group">
+				<span className="icon__span">
+					<svg className="icon icon--size-s">
+						<use href="icons.svg#calendar-1" />
+					</svg>
+					<p className="item__start__date">{data.start_date}</p>
+				</span>
+
+				<span className="icon__span">
+					<svg className="icon icon--size-s">
+						<use href="icons.svg#calendar-2" />
+					</svg>
+					<p className="item__end__date">{data.end_date}</p>
+				</span>
+			</div>
+			<span className="icon__span">
+				<svg className="icon icon--size-s">
+					<use href="icons.svg#map-pin" />
+				</svg>
+				<p className="item__location">{data.location}</p>
+			</span>
+			<p className="item__description">{data.description}</p>
+			<div className="item__technologies">
+				{data.technologies.map((tech, index) => (
+					<span key={index} className="technology__item">
+						{tech}
+					</span>
+				))}
+			</div>
+		</div>
 	);
 }
 
