@@ -53,7 +53,7 @@ export default function Home() {
 				/>
 				<ExperienceSection />
 				{/* <TechStackSection /> */}
-				<BigLink id="experiencesBtn" text="Experiences" path="/experiences" />
+				{/* <BigLink id="experiencesBtn" text="Experiences" path="/experiences" /> */}
 			</AppLayout>
 		</>
 	);
@@ -195,7 +195,10 @@ function ExperienceSection() {
 		})
 		.reverse()
 		.map((data: Experience, index: number) => {
-			return filter === data.type && <ExperienceItem key={index} data={data} />;
+			if (filter !== data.type) {
+				return null;
+			}
+			return <ExperienceItem key={index} data={data} />;
 		});
 
 	return (
@@ -204,7 +207,7 @@ function ExperienceSection() {
 				filterState={filter}
 				updateFilter={(newVal) => setFilter(newVal)}
 			/>
-			{experienceNode}
+			<ExperienceList>{experienceNode}</ExperienceList>
 		</section>
 	);
 }
@@ -224,10 +227,10 @@ function ExperienceFilterButtonGroup({
 	}
 
 	return (
-		<div className="experience__filter__button__group">
+		<div className="experience__filter__button__group box__shadow">
 			<button
 				data-index={0}
-				className={`${filterState === "work" ? "active" : ""}`}
+				className={`${filterState === "work" ? "active" : ""} text-header`}
 				onClick={onClickHandle}
 			>
 				Work
@@ -241,6 +244,14 @@ function ExperienceFilterButtonGroup({
 			</button>
 		</div>
 	);
+}
+
+type ExperienceListProps = {
+	children: (ReactNode | null)[];
+};
+
+function ExperienceList({ children }: ExperienceListProps) {
+	return <div className="experience__list">{children}</div>;
 }
 
 type ExperienceItemProps = {

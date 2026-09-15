@@ -10,91 +10,176 @@
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
   }
+
+  & > .hero__pic {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / span 4;
+
+    @media screen and (width >= 64rem) {
+      grid-column: 4 / span 1;
+      grid-row: 1 / span 3;
+    }
+  }
+
+  & > .hero__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / span 4;
+    margin-top: var(--common-gap);
+    user-select: none;
+
+    @media screen and (width >= 64rem) {
+      font-size: 2rem;
+      grid-column: 1 / span 3;
+      align-self: end;
+    }
+  }
+
+  & > .hero__roles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    grid-column: 1 / span 4;
+    user-select: none;
+
+    @media screen and (width >= 64rem) {
+      font-size: 1.5rem;
+      grid-column: 1 / span 3;
+      grid-row: 2 / span 1;
+      align-self: center;
+    }
+  }
+
+  & > .hero__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: 1 / span 4;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-self: start;
+
+    @media screen and (width >= 64rem) {
+      grid-column: 1 / span 3;
+      grid-row: 3 / span 1;
+    }
+
+    & > .hero__link {
+      align-items: center;
+
+      border-radius: var(--common-border-radius);
+      display: flex;
+      font-size: 1rem;
+      gap: 4px;
+      padding: 6px 12px;
+      text-decoration: none;
+
+      /* If changing link colors make sure to include fill for the svg */
+      color: var(--secondary);
+      fill: var(--secondary);
+
+      &.link--strong-true {
+        color: var(--accent);
+        fill: var(--accent);
+      }
+    }
+
+    .hero__link:active,
+    .hero__link:hover {
+      filter: brightness(1.8);
+    }
+  }
 }
 
-.hero__pic {
+section.experience {
   display: flex;
   flex-direction: column;
-  grid-column: 1 / span 4;
+  gap: var(--common-gap);
 
-  @media screen and (width >= 64rem) {
-    grid-column: 4 / span 1;
-    grid-row: 1 / span 3;
+  & > .experience__filter__button__group {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    padding: 0.2rem;
+    border-radius: var(--common-border-radius);
+    position: relative;
+    z-index: 0;
+
+    & > button {
+      flex: 1 1 0;
+      padding: 0.2rem;
+      border: none;
+      border-radius: var(--common-border-radius);
+      cursor: pointer;
+      transition: all 150ms ease;
+
+      &.active {
+        color: var(--white);
+        background-color: var(--secondary);
+      }
+    }
+  }
+
+  & > .experience__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & > .experience__item {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--white);
+      border: 1px solid var(--secondary);
+      border-radius: var(--common-border-radius);
+      color: var(--black);
+      padding: 1vw;
+      z-index: 1;
+
+      & > .item__group {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+
+      & > .item__description {
+        padding-top: 1rem;
+        padding-bottom: 0.2rem;
+      }
+
+      & .icon__span {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        color: gray;
+        fill: gray;
+      }
+
+      & .item__technologies {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+
+      & .technology__item {
+        display: flex;
+        justify-content: center;
+        max-width: fit-content;
+        background-color: var(--secondary);
+        border-radius: 16px;
+        color: var(--white);
+        padding: 2px 12px;
+        user-select: none;
+      }
+    }
   }
 }
 
-.hero__intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  grid-column: 1 / span 4;
-  margin-top: var(--common-gap);
-  user-select: none;
-
-  @media screen and (width >= 64rem) {
-    font-size: 2rem;
-    grid-column: 1 / span 3;
-    align-self: end;
-  }
-}
-
-.hero__roles {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  grid-column: 1 / span 4;
-  user-select: none;
-
-  @media screen and (width >= 64rem) {
-    font-size: 1.5rem;
-    grid-column: 1 / span 3;
-    grid-row: 2 / span 1;
-    align-self: center;
-  }
-}
-
-.hero__links {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  grid-column: 1 / span 4;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-self: start;
-
-  @media screen and (width >= 64rem) {
-    grid-column: 1 / span 3;
-    grid-row: 3 / span 1;
-  }
-}
-
-.hero__link {
-  align-items: center;
-
-  border-radius: var(--common-border-radius);
-  display: flex;
-  font-size: 1rem;
-  gap: 4px;
-  padding: 6px 12px;
-  text-decoration: none;
-
-  /* If changing link colors make sure to include fill for the svg */
-  color: var(--secondary);
-  fill: var(--secondary);
-
-  &.link--strong-true {
-    color: var(--accent);
-    fill: var(--accent);
-  }
-}
-
-.hero__link:active,
-.hero__link:hover {
-  filter: brightness(1.8);
-}
-
+/* 
 .stack {
   background-color: var(--white);
   color: var(--black);
@@ -144,7 +229,7 @@
   color: var(--white);
   padding: 2px 12px;
 }
-
+ */
 .big__link {
   background-color: var(--white);
   border-radius: var(--common-border-radius);
