@@ -73,10 +73,10 @@ function HeroLink({ text, href, iconRef, emphasize }: HeroLinkProps) {
 			className={emphasize ? "hero__link link--strong-true" : "hero__link"}
 			target="_blank"
 		>
+			{text && <span>{text}</span>}
 			<svg className="icon icon--size-l icon__shadow">
 				<use href={iconRef} />
 			</svg>
-			<span>{text}</span>
 		</a>
 	);
 }
@@ -119,7 +119,7 @@ function HeroSection({
 			<div className="hero__pic">
 				<img id="profilePic" src={profileImg} alt="My Profile Photo" />
 			</div>
-			<div className="hero__intro">
+			<div className="hero__fullname">
 				<h1
 					className={`font-display animation-tippy_toes text__shadow ${isRunning ? "running" : ""}`}
 					onAnimationEnd={handleAnimationEnd}
@@ -128,7 +128,7 @@ function HeroSection({
 				</h1>
 			</div>
 			<div className="hero__roles text__shadow">{heroRoles}</div>
-			<div className="hero__roles text__shadow">{heroIntroduction}</div>
+			<div className="hero__intro text__shadow">{heroIntroduction}</div>
 			<div className="hero__links">
 				<HeroLink
 					text="Resume"
@@ -137,19 +137,19 @@ function HeroSection({
 					emphasize={true}
 				/>
 				<HeroLink
-					text="homusys"
+					text=""
 					href="https://github.com/homusys"
 					iconRef="icons.svg#github"
 					emphasize={false}
 				/>
 				<HeroLink
-					text="Carl Arzadon"
+					text=""
 					href="https://www.linkedin.com/in/arzadoncarl/"
 					iconRef="icons.svg#linkedin"
 					emphasize={false}
 				/>
 				<HeroLink
-					text="arzadoncarl (at) gmail (dot) com"
+					text=""
 					href="mailto:arzadoncarl@gmail.com"
 					iconRef="icons.svg#email"
 					emphasize={false}
@@ -264,21 +264,21 @@ function ExperienceItem({ data }: ExperienceItemProps) {
 			<h3 className="item__title">{data.title}</h3>
 			<div className="item__group">
 				<span className="icon__span">
-					<svg className="icon icon--size-s">
+					<svg className="icon">
 						<use href="icons.svg#calendar-1" />
 					</svg>
 					<p className="item__start__date">{data.start_date}</p>
 				</span>
 
 				<span className="icon__span">
-					<svg className="icon icon--size-s">
+					<svg className="icon">
 						<use href="icons.svg#calendar-2" />
 					</svg>
 					<p className="item__end__date">{data.end_date}</p>
 				</span>
 			</div>
 			<span className="icon__span">
-				<svg className="icon icon--size-s">
+				<svg className="icon">
 					<use href="icons.svg#map-pin" />
 				</svg>
 				<p className="item__location">{data.location}</p>

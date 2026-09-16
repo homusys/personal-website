@@ -22,17 +22,18 @@
     }
   }
 
-  & > .hero__intro {
+  & > .hero__fullname {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    /* text-align: left; */
     grid-column: 1 / span 4;
     margin-top: var(--common-gap);
+    font-size: clamp(1rem, 0.8571rem + 0.7143vw, 1.5rem);
     user-select: none;
 
     @media screen and (width >= 64rem) {
-      font-size: 2rem;
       grid-column: 1 / span 3;
       align-self: end;
     }
@@ -41,10 +42,11 @@
   & > .hero__roles {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    text-align: center;
+    text-align: left;
     grid-column: 1 / span 4;
     user-select: none;
+    /* font-size: 0.8rem; */
+    margin-top: var(--common-gap);
 
     @media screen and (width >= 64rem) {
       font-size: 1.5rem;
@@ -54,37 +56,62 @@
     }
   }
 
+  & > .hero__intro {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    grid-column: 1 / span 4;
+    user-select: none;
+    margin-top: var(--common-gap);
+    /* font-size: 0.8rem; */
+  }
+
   & > .hero__links {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     grid-column: 1 / span 4;
-    gap: 8px;
-    flex-wrap: wrap;
     align-self: start;
+    margin: 1rem 0;
 
     @media screen and (width >= 64rem) {
+      justify-content: center;
       grid-column: 1 / span 3;
       grid-row: 3 / span 1;
     }
 
     & > .hero__link {
       align-items: center;
-
       border-radius: var(--common-border-radius);
       display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+
       font-size: 1rem;
-      gap: 4px;
-      padding: 6px 12px;
+      /* gap: var(--common-gap); */
       text-decoration: none;
 
       /* If changing link colors make sure to include fill for the svg */
       color: var(--secondary);
       fill: var(--secondary);
 
+      & > svg.icon {
+        aspect-ratio: 1/1;
+        width: var(--icon--size-m);
+      }
+
       &.link--strong-true {
         color: var(--accent);
         fill: var(--accent);
+        padding: 0.4rem 0;
+        border: 1px dashed var(--accent);
+        flex-grow: 2;
+        gap: 0.2rem;
+
+        & > svg.icon {
+          width: var(--icon--size-s);
+        }
       }
     }
 
@@ -127,7 +154,7 @@ section.experience {
   & > .experience__list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--common-gap);
 
     & > .experience__item {
       display: flex;
@@ -138,6 +165,11 @@ section.experience {
       color: var(--black);
       padding: 1vw;
       z-index: 1;
+
+      & svg.icon {
+        aspect-ratio: 1/1;
+        width: var(--icon--size-s);
+      }
 
       & > .item__group {
         display: flex;
