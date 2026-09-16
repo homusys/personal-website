@@ -15,6 +15,10 @@
   --common-border-radius: 6px;
   --common-border: 1px solid var(--secondary-light);
   --common-gap: 8px;
+
+  --icon--size-s: 1rem;
+  --icon--size-m: 1.5rem;
+  --icon--size-l: 2rem;
 }
 
 *,
@@ -73,22 +77,6 @@ ul {
 
 .icon__shadow {
   filter: drop-shadow(0 5px 5px black);
-}
-
-.icon {
-  aspect-ratio: 1/1;
-
-  &.icon--size-s {
-    width: 16px;
-  }
-
-  &.icon--size-m {
-    width: 24px;
-  }
-
-  &.icon--size-l {
-    width: 32px;
-  }
 }
 
 .icon__button {
