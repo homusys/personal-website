@@ -15,6 +15,7 @@
   --common-border-radius: 6px;
   --common-border: 1px solid var(--secondary-light);
   --common-gap: 8px;
+  --section-top-margin: 2rem;
 
   --icon--size-s: 1rem;
   --icon--size-m: 1.5rem;

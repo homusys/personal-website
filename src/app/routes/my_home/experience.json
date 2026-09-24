@@ -6,8 +6,12 @@
     "location": "Baguio City, Philippines",
     "start_date": "2025-06",
     "end_date": "2025-08",
-    "description": "Developed a web app for simplifying the recruitment and hiring process, making it easier for staff to manage applicants through a centralized system.",
-    "responsibilities": [],
+    "accomplishments": [
+      "Developed and deployed a Laravel web application using MVC architecture with HTML, CSS, JavaScript, PHP, and Tailwind CSS that simplified the recruitment and hiring process, making it easier for staff to manage applicants through a single centralized system.",
+      "Designed a MySQL database and managed SQL data operations through Laravel Eloquent ORM to keep applicant records accurate, consistent, and easy to search, reducing errors and time spent manually organizing candidate information.",
+      "Coordinated code changes with a small team using Git and GitHub, resolving conflicts and merging features efficiently, enabling faster, more reliable delivery of new functionality without overwriting teammates’ work.",
+      "Built a live exam monitoring system using Laravel Livewire and Reverb that allowed administrators to track examinee progress instantly and detect when users switched away from the exam window, helping maintain exam integrity and reduce cheating."
+    ],
     "technologies": [
       "HTML",
       "PHP",
@@ -15,101 +19,51 @@
       "Laravel",
       "MySQL",
       "Tailwind CSS",
-      "Git",
-      "GitHub"
+      "Git/Github"
     ]
   },
   {
-    "title": "Embedded Systems Programmer, Freelance",
-    "organization": "Electrical Engineering Thesis Project",
+    "title": "Embedded Systems Programmer",
+    "organization": "Freelance",
     "type": "work",
     "location": "Urdaneta City, Pangasinan, Philippines",
     "start_date": "2024-03",
     "end_date": "2024-04",
-    "description": "Developed the embedded control system for an automated traffic management project in collaboration with Electrical Engineering students.",
-    "responsibilities": [],
+    "accomplishments": [
+      "Programmed a multi-board wireless traffic control system across 9 Arduino boards (1 master, 7 sensor stations, 1 manual controller) so that traffic lights could react automatically to real-time car and pedestrian presence instead of running on fixed timers alone.",
+      "Used ultrasonic distance sensors on each intersection approach to detect when a car or pedestrian was present, feeding that data into the light-timing decisions so lanes with traffic got priority over empty ones.",
+      "Built a wireless data-sharing setup (nRF24L01 radios in a network) so the sensor boards could send detection data to the central board and receive back the light commands to display — allowing the boards to be physically separated across the intersection without needing wired connections.",
+      "Added a real-time clock-based scheduling mode so the light timing could automatically adjust based on time of day (e.g. rush hour vs. off-peak), in addition to the sensor-driven mode.",
+      "Built a manual override control panel with physical buttons and indicator lights so an operator could bypass the automatic system and run specific traffic light scenes directly when needed.",
+      "Structured the codebase to support multiple board roles from one shared code project, using build configuration profiles so the same logic could be compiled differently depending on which physical board (master, sensor station, or controller) it was flashed to — making the system easier to maintain and extend as more intersections/boards were added."
+    ],
     "technologies": [
-      "Arduino R3",
-      "ESP32",
-      "NRF24L01",
-      "C/C++",
-      "KiCad 8",
-      "Git"
+      "C++",
+      "Arduino",
+      "PlatformIO",
+      "Arduino Uno",
+      "Arduino Mega 2560",
+      "nRF24L01 (Wireless Transceiver)",
+      "RF24 Library",
+      "RF24Network Library",
+      "HC-SR04 Ultrasonic Sensor",
+      "NewPing Library",
+      "DS3231 RTC Module",
+      "DS3231 Library",
+      "SPI",
+      "I2C (Wire Library)",
+      "Relay Modules",
+      "Git/GitHub"
     ]
   },
   {
-    "title": "Grading System",
+    "title": "Bachelor of Science in Computer Engineering",
     "organization": "Pangasinan State University - Urdaneta Campus",
     "type": "academic",
     "location": "Urdaneta City, Pangasinan, Philippines",
-    "start_date": "2023-11",
-    "end_date": "2024-01",
-    "description": "Built a desktop grading system software for teachers to record, calculate, and print student grades to reduce user errors and save time compared to manual spreadsheet operations.",
-    "responsibilities": [],
-    "technologies": [
-      "Python",
-      "PyQt5",
-      "SQLite",
-      "SQL Alchemy",
-      "Git",
-      "GitHub"
-    ]
-  },
-  {
-    "title": "QR-based Attendance Tracker",
-    "organization": "Pangasinan State University - Urdaneta Campus",
-    "type": "academic",
-    "location": "Urdaneta City, Pangasinan, Philippines",
-    "start_date": "2024-02",
-    "end_date": "2024-06",
-    "description": "Built a desktop app that keeps track of student attendance, generate and print QR code, and communicate with an ESP32-CAM development board for scanning QR code via sockets.",
-    "responsibilities": [],
-    "technologies": [
-      "Python",
-      "PyQt5",
-      "SQLite",
-      "SQL Alchemy",
-      "OpenCV",
-      "ESP32-CAM",
-      "Git",
-      "GitHub"
-    ]
-  },
-  {
-    "title": "Balancing Robot",
-    "organization": "Pangasinan State University - Urdaneta Campus",
-    "type": "academic",
-    "location": "Urdaneta City, Pangasinan, Philippines",
-    "start_date": "2024-09",
-    "end_date": "2024-12",
-    "description": "Built a balancing robot that should balance a cup full of water without spilling for my Control Systems class (3rd yr).",
-    "responsibilities": [],
-    "technologies": [
-      "KiCad 8",
-      "Electronics Design",
-      "MPU-6050",
-      "Schematic Capture",
-      "PCB Layout",
-      "ESP32",
-      "Soldering",
-      "Git"
-    ]
-  },
-  {
-    "title": "2-bit Analog-to-Digital Converter",
-    "organization": "Pangasinan State University - Urdaneta Campus",
-    "type": "academic",
-    "location": "Urdaneta City, Pangasinan, Philippines",
-    "start_date": "2025-09",
-    "end_date": "2025-11",
-    "description": "Built a simple 2-bit Analog-to-Digital Converter from scratch for my Signals class (4th yr).",
-    "responsibilities": [],
-    "technologies": [
-      "KiCad 8",
-      "Electronics Design",
-      "Soldering",
-      "Schematic Capture",
-      "PCB Layout"
-    ]
+    "start_date": "2022-08",
+    "end_date": "2026-07",
+    "accomplishments": [],
+    "technologies": []
   }
 ]

@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Link } from "react-router";
+import { useState, type ReactNode } from "react";
 
 import profileImg from "../../../assets/profile.png";
 import Curtains from "../../components/curtains/curtains";
@@ -168,8 +167,7 @@ type Experience = {
 	location: string;
 	start_date: string;
 	end_date: string;
-	description: string;
-	responsibilities: string[];
+	accomplishments: string[];
 	technologies: string[];
 };
 
@@ -267,25 +265,50 @@ function ExperienceItem({ data }: ExperienceItemProps) {
 					<svg className="icon">
 						<use href="icons.svg#calendar-1" />
 					</svg>
-					<p className="item__start__date">{data.start_date}</p>
+					{data.start_date}
 				</span>
 
 				<span className="icon__span">
 					<svg className="icon">
 						<use href="icons.svg#calendar-2" />
 					</svg>
-					<p className="item__end__date">{data.end_date}</p>
+					{data.end_date}
 				</span>
 			</div>
 			<span className="icon__span">
 				<svg className="icon">
+					<use href="icons.svg#organization" />
+				</svg>
+				{data.organization}
+			</span>
+			<span className="icon__span">
+				<svg className="icon">
 					<use href="icons.svg#map-pin" />
 				</svg>
-				<p className="item__location">{data.location}</p>
+				{data.location}
 			</span>
-			<p className="item__description">{data.description}</p>
+			<ul className="item__accomplishments">
+				{data.accomplishments.map((entry: string, index: number) => (
+					<li key={index}>{entry}</li>
+				))}
+				{/* <div className="overlay">
+					<button className="box__shadow" onClick={expandList}>
+						{isExpanded ? "Collapse" : "Expand"}
+
+						{isExpanded ? (
+							<svg className="icon">
+								<use href="icons.svg#expand-up-arrow" />
+							</svg>
+						) : (
+							<svg className="icon">
+								<use href="icons.svg#expand-down-arrow" />
+							</svg>
+						)}
+					</button>
+				</div> */}
+			</ul>
 			<div className="item__technologies">
-				{data.technologies.map((tech, index) => (
+				{data.technologies.map((tech: string, index: number) => (
 					<span key={index} className="technology__item">
 						{tech}
 					</span>
@@ -295,98 +318,98 @@ function ExperienceItem({ data }: ExperienceItemProps) {
 	);
 }
 
-function TechStackSection() {
-	const LANGUAGES = [
-		"HTML",
-		"CSS",
-		"JavaScript",
-		"TypeScript",
-		"Dart",
-		"Python",
-		"PHP",
-	];
-	const FRONTEND = ["React", "Flutter"];
-	const STYLING = ["Tailwind CSS", "Bootstrap"];
-	const BACKEND = ["Node.js", "Express", "Laravel", "Flask"];
-	const DATABASES = ["PostgreSQL", "MySQL", "Supabase"];
+// function TechStackSection() {
+// 	const LANGUAGES = [
+// 		"HTML",
+// 		"CSS",
+// 		"JavaScript",
+// 		"TypeScript",
+// 		"Dart",
+// 		"Python",
+// 		"PHP",
+// 	];
+// 	const FRONTEND = ["React", "Flutter"];
+// 	const STYLING = ["Tailwind CSS", "Bootstrap"];
+// 	const BACKEND = ["Node.js", "Express", "Laravel", "Flask"];
+// 	const DATABASES = ["PostgreSQL", "MySQL", "Supabase"];
 
-	function createStackContainer(label: string, items: string[]) {
-		return (
-			<div className="stack__container">
-				<span className="stack__container__label">{label}</span>
-				<div className="stack__container__items">
-					{items.map((value, index) => (
-						<span key={index} className="stack__item">
-							{value}
-						</span>
-					))}
-				</div>
-			</div>
-		);
-	}
+// 	function createStackContainer(label: string, items: string[]) {
+// 		return (
+// 			<div className="stack__container">
+// 				<span className="stack__container__label">{label}</span>
+// 				<div className="stack__container__items">
+// 					{items.map((value, index) => (
+// 						<span key={index} className="stack__item">
+// 							{value}
+// 						</span>
+// 					))}
+// 				</div>
+// 			</div>
+// 		);
+// 	}
 
-	return (
-		<section className="stack box__shadow">
-			<h2 className="stack__header font-header">Tech Stack</h2>
-			<div className="stack__all">
-				{createStackContainer("Languages", LANGUAGES)}
-				{createStackContainer("Frontend", FRONTEND)}
-				{createStackContainer("Styling", STYLING)}
-				{createStackContainer("Backend & APIs", BACKEND)}
-				{createStackContainer("Databases", DATABASES)}
-			</div>
-		</section>
-	);
-}
+// 	return (
+// 		<section className="stack box__shadow">
+// 			<h2 className="stack__header font-header">Tech Stack</h2>
+// 			<div className="stack__all">
+// 				{createStackContainer("Languages", LANGUAGES)}
+// 				{createStackContainer("Frontend", FRONTEND)}
+// 				{createStackContainer("Styling", STYLING)}
+// 				{createStackContainer("Backend & APIs", BACKEND)}
+// 				{createStackContainer("Databases", DATABASES)}
+// 			</div>
+// 		</section>
+// 	);
+// }
 
-function BigLink({
-	id,
-	text,
-	path,
-}: {
-	id: string;
-	text: string;
-	path: string;
-}) {
-	const DELAY = 2;
-	const animationContainer = useRef<HTMLDivElement>(null);
-	const [cellCount, setCellCount] = useState(0);
+// function BigLink({
+// 	id,
+// 	text,
+// 	path,
+// }: {
+// 	id: string;
+// 	text: string;
+// 	path: string;
+// }) {
+// 	const DELAY = 2;
+// 	const animationContainer = useRef<HTMLDivElement>(null);
+// 	const [cellCount, setCellCount] = useState(0);
 
-	useEffect(() => {
-		const container = animationContainer.current;
+// 	useEffect(() => {
+// 		const container = animationContainer.current;
 
-		if (!container) {
-			return;
-		}
+// 		if (!container) {
+// 			return;
+// 		}
 
-		const width = container.clientWidth;
-		const height = container.clientHeight;
+// 		const width = container.clientWidth;
+// 		const height = container.clientHeight;
 
-		const cols = Math.ceil(width / 50);
-		const rows = Math.ceil(height / 20);
+// 		const cols = Math.ceil(width / 50);
+// 		const rows = Math.ceil(height / 20);
 
-		container.style.setProperty("--cols", cols.toString());
-		container.style.setProperty("--rows", rows.toString());
+// 		container.style.setProperty("--cols", cols.toString());
+// 		container.style.setProperty("--rows", rows.toString());
 
-		setCellCount(cols * rows);
-	}, []);
+// 		setCellCount(cols * rows);
+// 	}, []);
 
-	return (
-		<Link id={id} to={path} className="big__link box__shadow">
-			<h3 className="font-header">{text}</h3>
-			<div ref={animationContainer} className="animation-rect_grid">
-				{Array.from({ length: cellCount }, (_, index) => (
-					<div key={index} className="rect__container">
-						<div
-							className="rect"
-							style={{ animationDelay: `${Math.random() * DELAY}s` }}
-						></div>
-					</div>
-				))}
-			</div>
-			<svg className="icon icon--size-l">
-				<use href="icons.svg#arrow" />
-			</svg>
-		</Link>
-	);
-}
+// 	return (
+// 		<Link id={id} to={path} className="big__link box__shadow">
+// 			<h3 className="font-header">{text}</h3>
+// 			<div ref={animationContainer} className="animation-rect_grid">
+// 				{Array.from({ length: cellCount }, (_, index) => (
+// 					<div key={index} className="rect__container">
+// 						<div
+// 							className="rect"
+// 							style={{ animationDelay: `${Math.random() * DELAY}s` }}
+// 						></div>
+// 					</div>
+// 				))}
+// 			</div>
+// 			<svg className="icon icon--size-l">
+// 				<use href="icons.svg#arrow" />
+// 			</svg>
+// 		</Link>
+// 	);
+// }
