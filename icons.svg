@@ -39,7 +39,7 @@
   </symbol>
 
   <symbol id="download" viewBox="0 0 24 24">
-    <path fill="currentColor" d="m16 2l5 5v14.008a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 21.008V2.992C3 2.444 3.445 2 3.993 2zm-3 10V8h-2v4H8l4 4l4-4z" />
+    <path fill="currentColor" d="M3 19h18v2H3zm10-5.828L19.071 7.1l1.414 1.414L12 17L3.515 8.515L4.929 7.1L11 13.173V2h2z" />
   </symbol>
 
   <symbol id="github" viewBox="0 0 24 24">
@@ -68,5 +68,17 @@
 
   <symbol id="calendar-2" viewBox="0 0 24 24">
     <path fill="currentColor" d="M9 1v2h6V1h2v2h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1zm11 10H4v8h16zM8 13v2H6v-2zm5 0v2h-2v-2zm5 0v2h-2v-2zM7 5H4v4h16V5h-3v2h-2V5H9v2H7z" />
+  </symbol>  
+
+  <symbol id="organization" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M21 20h2v2H1v-2h2V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1zm-2 0V4H5v16zM8 11h3v2H8zm0-4h3v2H8zm0 8h3v2H8zm5 0h3v2h-3zm0-4h3v2h-3zm0-4h3v2h-3z" />
+  </symbol>
+
+  <symbol id="expand-down-arrow" viewBox="0 0 24 24">
+    <path fill="currentColor" d="m12 15.632l8.968-4.748l-.936-1.768L12 13.368L3.968 9.116l-.936 1.768z" />
+  </symbol>  
+
+  <symbol id="expand-up-arrow" viewBox="0 0 24 24">
+    <path fill="currentColor" d="m12 8.369l8.968 4.747l-.936 1.768L12 10.632l-8.032 4.252l-.936-1.768z" />
   </symbol>  
 </svg>
