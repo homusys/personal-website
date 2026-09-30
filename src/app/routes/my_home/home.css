@@ -211,6 +211,7 @@ section.experience {
 
         & > li {
           margin-top: var(--common-gap);
+          margin-bottom: var(--common-gap);
         }
 
         & > li::marker {
@@ -233,19 +234,50 @@ section.experience {
         flex-wrap: wrap;
         gap: 2px;
         z-index: 10;
-        margin-top: 1rem;
+      }
+
+      & .item__actions {
+        display: flex;
+        gap: 2px;
+        margin: var(--common-gap) 0;
+
+        & > .action {
+          display: flex;
+          align-items: center;
+          border-radius: 500px;
+          border: 0;
+          background-color: var(--secondary);
+          color: var(--white);
+          padding: 2px 12px;
+          text-decoration: none;
+          gap: 0.1rem;
+          font-size: 0.7rem;
+          cursor: pointer;
+          transition: all 100ms ease-out;
+          box-shadow: 0 1px 1px 0 var(--black);
+
+          &:hover {
+            background-color: var(--tertiary);
+            color: var(--black);
+          }
+        }
+
+        & .icon {
+          width: var(--icon--size-s);
+        }
       }
 
       & .technology__item {
         display: flex;
         justify-content: center;
         max-width: fit-content;
-        background-color: var(--secondary);
+        /* background-color: var(--secondary); */
+        border: 1px dashed var(--secondary);
         border-radius: 500px;
-        color: var(--white);
+        /* color: var(--white); */
         padding: 2px 12px;
         user-select: none;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
     }
   }

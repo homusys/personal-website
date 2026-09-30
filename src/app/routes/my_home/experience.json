@@ -12,6 +12,8 @@
       "Coordinated code changes with a small team using Git and GitHub, resolving conflicts and merging features efficiently, enabling faster, more reliable delivery of new functionality without overwriting teammates’ work.",
       "Built a live exam monitoring system using Laravel Livewire and Reverb that allowed administrators to track examinee progress instantly and detect when users switched away from the exam window, helping maintain exam integrity and reduce cheating."
     ],
+    "project_links": [],
+    "image_links": [],
     "technologies": [
       "HTML",
       "PHP",
@@ -37,6 +39,13 @@
       "Built a manual override control panel with physical buttons and indicator lights so an operator could bypass the automatic system and run specific traffic light scenes directly when needed.",
       "Structured the codebase to support multiple board roles from one shared code project, using build configuration profiles so the same logic could be compiled differently depending on which physical board (master, sensor station, or controller) it was flashed to — making the system easier to maintain and extend as more intersections/boards were added."
     ],
+    "project_links": [
+      {
+        "label": "source",
+        "url": "https://github.com/homusys/wireless-sensor-based-traffic-control-system"
+      }
+    ],
+    "image_links": [],
     "technologies": [
       "C++",
       "Arduino",
@@ -64,6 +73,8 @@
     "start_date": "2022-08",
     "end_date": "2026-07",
     "accomplishments": [],
+    "project_links": [],
+    "image_links": [],
     "technologies": []
   }
 ]

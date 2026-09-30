@@ -168,6 +168,14 @@ type Experience = {
 	start_date: string;
 	end_date: string;
 	accomplishments: string[];
+	project_links: {
+		label: string;
+		url: string;
+	}[];
+	image_links: {
+		caption: string;
+		url: string;
+	}[];
 	technologies: string[];
 };
 
@@ -257,6 +265,14 @@ type ExperienceItemProps = {
 };
 
 function ExperienceItem({ data }: ExperienceItemProps) {
+	function hasProjectLinks() {
+		return data.project_links.length > 0;
+	}
+
+	function hasImages() {
+		return data.image_links.length > 0;
+	}
+
 	return (
 		<div className="experience__item box__shadow">
 			<h3 className="item__title">{data.title}</h3>
@@ -291,22 +307,36 @@ function ExperienceItem({ data }: ExperienceItemProps) {
 				{data.accomplishments.map((entry: string, index: number) => (
 					<li key={index}>{entry}</li>
 				))}
-				{/* <div className="overlay">
-					<button className="box__shadow" onClick={expandList}>
-						{isExpanded ? "Collapse" : "Expand"}
-
-						{isExpanded ? (
-							<svg className="icon">
-								<use href="icons.svg#expand-up-arrow" />
-							</svg>
-						) : (
-							<svg className="icon">
-								<use href="icons.svg#expand-down-arrow" />
-							</svg>
-						)}
-					</button>
-				</div> */}
 			</ul>
+
+			{(hasProjectLinks() || hasImages()) && (
+				<div className="item__actions">
+					{hasProjectLinks() &&
+						data.project_links.map((project, index) => (
+							<a
+								key={index}
+								href={project.url}
+								target="_blank"
+								className="action font-mono"
+							>
+								<svg className="icon">
+									<use href="icons.svg#source-code" />
+								</svg>
+								{project.label}
+							</a>
+						))}
+
+					{hasImages() && (
+						<button className="action font-mono">
+							<svg className="icon">
+								<use href="icons.svg#images" />
+							</svg>
+							images
+						</button>
+					)}
+				</div>
+			)}
+
 			<div className="item__technologies">
 				{data.technologies.map((tech: string, index: number) => (
 					<span key={index} className="technology__item font-mono">
