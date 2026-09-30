@@ -241,10 +241,11 @@ section.experience {
         justify-content: center;
         max-width: fit-content;
         background-color: var(--secondary);
-        border-radius: 16px;
+        border-radius: 500px;
         color: var(--white);
         padding: 2px 12px;
         user-select: none;
+        font-size: 0.8rem;
       }
     }
   }

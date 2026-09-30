@@ -309,7 +309,7 @@ function ExperienceItem({ data }: ExperienceItemProps) {
 			</ul>
 			<div className="item__technologies">
 				{data.technologies.map((tech: string, index: number) => (
-					<span key={index} className="technology__item">
+					<span key={index} className="technology__item font-mono">
 						{tech}
 					</span>
 				))}
