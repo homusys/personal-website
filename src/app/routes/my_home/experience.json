@@ -13,7 +13,40 @@
       "Built a live exam monitoring system using Laravel Livewire and Reverb that allowed administrators to track examinee progress instantly and detect when users switched away from the exam window, helping maintain exam integrity and reduce cheating."
     ],
     "project_links": [],
-    "image_links": [],
+    "image_links": [
+      {
+        "caption": "Walking back to apartment...",
+        "url": "https://i.ibb.co/DHrHMKD8/PXL-20250711-184412594.jpg"
+      },
+      {
+        "caption": "Participation in Wordpress Web Content Management.",
+        "url": "https://i.ibb.co/s9hgF0fV/photo-2026-10-01-00-07-51.jpg"
+      },
+      {
+        "caption": "Presentation of output at the end of internship.",
+        "url": "https://i.ibb.co/HMdX9Qv/photo-2026-10-01-00-07-44.jpg"
+      },
+      {
+        "caption": "Learning wordpress.",
+        "url": "https://i.ibb.co/0yz7KSMF/photo-2026-10-01-00-07-36.jpg"
+      },
+      {
+        "caption": "Programming...",
+        "url": "https://i.ibb.co/pv3vJckX/photo-2026-10-01-00-07-16.jpg"
+      },
+      {
+        "caption": "Clocking out after 8 hr shift.",
+        "url": "https://i.ibb.co/8nCvLTb3/photo-2026-10-01-00-07-06.jpg"
+      },
+      {
+        "caption": "Walking back to apartment in the rain...",
+        "url": "https://i.ibb.co/d874c6z/photo-2026-10-01-00-07-01.jpg"
+      },
+      {
+        "caption": "Walking back to apartment in the rain... part 2.",
+        "url": "https://i.ibb.co/8L9KdSX1/photo-2026-10-01-00-06-47.jpg"
+      }
+    ],
     "technologies": [
       "HTML",
       "PHP",

@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import React, { useEffect, useRef, useState, type ReactNode } from "react";
 
 import profileImg from "../../../assets/profile.png";
 import Curtains from "../../components/curtains/curtains";
@@ -265,12 +265,33 @@ type ExperienceItemProps = {
 };
 
 function ExperienceItem({ data }: ExperienceItemProps) {
+	const [storyVisible, setStoryVisible] = useState(false);
+	const storiesModal = useRef<HTMLDialogElement>(null);
+
 	function hasProjectLinks() {
 		return data.project_links.length > 0;
 	}
 
 	function hasImages() {
 		return data.image_links.length > 0;
+	}
+
+	function showStory() {
+		const current = storiesModal.current;
+
+		if (current !== null) {
+			current.showModal();
+			setStoryVisible(true);
+		}
+	}
+
+	function closeStory() {
+		const current = storiesModal.current;
+
+		if (current !== null) {
+			current.close();
+			setStoryVisible(false);
+		}
 	}
 
 	return (
@@ -325,14 +346,22 @@ function ExperienceItem({ data }: ExperienceItemProps) {
 								{project.label}
 							</a>
 						))}
-
 					{hasImages() && (
-						<button className="action font-mono">
+						<button className="action font-mono" onClick={() => showStory()}>
 							<svg className="icon">
 								<use href="icons.svg#images" />
 							</svg>
-							images
+							view story
 						</button>
+					)}
+
+					{hasImages() && (
+						<Story
+							ref={storiesModal}
+							images={data.image_links}
+							storyVisible={storyVisible}
+							onClose={() => closeStory()}
+						/>
 					)}
 				</div>
 			)}
@@ -348,98 +377,117 @@ function ExperienceItem({ data }: ExperienceItemProps) {
 	);
 }
 
-// function TechStackSection() {
-// 	const LANGUAGES = [
-// 		"HTML",
-// 		"CSS",
-// 		"JavaScript",
-// 		"TypeScript",
-// 		"Dart",
-// 		"Python",
-// 		"PHP",
-// 	];
-// 	const FRONTEND = ["React", "Flutter"];
-// 	const STYLING = ["Tailwind CSS", "Bootstrap"];
-// 	const BACKEND = ["Node.js", "Express", "Laravel", "Flask"];
-// 	const DATABASES = ["PostgreSQL", "MySQL", "Supabase"];
+type StoryProps = {
+	ref: React.RefObject<HTMLDialogElement | null>;
+	images: {
+		caption: string;
+		url: string;
+	}[];
+	storyVisible: boolean;
+	onClose: VoidFunction;
+};
 
-// 	function createStackContainer(label: string, items: string[]) {
-// 		return (
-// 			<div className="stack__container">
-// 				<span className="stack__container__label">{label}</span>
-// 				<div className="stack__container__items">
-// 					{items.map((value, index) => (
-// 						<span key={index} className="stack__item">
-// 							{value}
-// 						</span>
-// 					))}
-// 				</div>
-// 			</div>
-// 		);
-// 	}
+function Story({ ref, images, storyVisible, onClose }: StoryProps) {
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+	const [progress, setProgress] = useState(0);
 
-// 	return (
-// 		<section className="stack box__shadow">
-// 			<h2 className="stack__header font-header">Tech Stack</h2>
-// 			<div className="stack__all">
-// 				{createStackContainer("Languages", LANGUAGES)}
-// 				{createStackContainer("Frontend", FRONTEND)}
-// 				{createStackContainer("Styling", STYLING)}
-// 				{createStackContainer("Backend & APIs", BACKEND)}
-// 				{createStackContainer("Databases", DATABASES)}
-// 			</div>
-// 		</section>
-// 	);
-// }
+	useEffect(() => {
+		if (!storyVisible) {
+			return;
+		}
 
-// function BigLink({
-// 	id,
-// 	text,
-// 	path,
-// }: {
-// 	id: string;
-// 	text: string;
-// 	path: string;
-// }) {
-// 	const DELAY = 2;
-// 	const animationContainer = useRef<HTMLDivElement>(null);
-// 	const [cellCount, setCellCount] = useState(0);
+		// Preload and cache images
+		images.forEach((image) => {
+			const img = new Image();
+			img.src = image.url;
+		});
+	}, [images]);
 
-// 	useEffect(() => {
-// 		const container = animationContainer.current;
+	// Compute the width percentange of the mini progress bar depending on the time.
+	// ( currentTime / totalTime ) * 100 => the width of the mini progress bar.
+	useEffect(() => {
+		if (!storyVisible) {
+			return;
+		}
 
-// 		if (!container) {
-// 			return;
-// 		}
+		const TOTAL_DURATION_S = 5000;
+		const startDuration = Date.now();
 
-// 		const width = container.clientWidth;
-// 		const height = container.clientHeight;
+		const interval = setInterval(() => {
+			const currentDuration = Date.now() - startDuration;
+			const percentage = Math.min(
+				(currentDuration / TOTAL_DURATION_S) * 100,
+				100,
+			);
 
-// 		const cols = Math.ceil(width / 50);
-// 		const rows = Math.ceil(height / 20);
+			setProgress(percentage);
 
-// 		container.style.setProperty("--cols", cols.toString());
-// 		container.style.setProperty("--rows", rows.toString());
+			if (percentage >= 100) {
+				clearInterval(interval);
+				nextImage();
+			}
+		}, 16);
 
-// 		setCellCount(cols * rows);
-// 	}, []);
+		return () => clearInterval(interval);
+	}, [currentImageIndex, storyVisible]);
 
-// 	return (
-// 		<Link id={id} to={path} className="big__link box__shadow">
-// 			<h3 className="font-header">{text}</h3>
-// 			<div ref={animationContainer} className="animation-rect_grid">
-// 				{Array.from({ length: cellCount }, (_, index) => (
-// 					<div key={index} className="rect__container">
-// 						<div
-// 							className="rect"
-// 							style={{ animationDelay: `${Math.random() * DELAY}s` }}
-// 						></div>
-// 					</div>
-// 				))}
-// 			</div>
-// 			<svg className="icon icon--size-l">
-// 				<use href="icons.svg#arrow" />
-// 			</svg>
-// 		</Link>
-// 	);
-// }
+	function previousImage() {
+		if (currentImageIndex <= 0) {
+			return;
+		}
+
+		setCurrentImageIndex((c) => --c);
+		setProgress(0);
+	}
+
+	function nextImage() {
+		if (currentImageIndex >= images.length - 1) {
+			return;
+		}
+
+		setCurrentImageIndex((c) => ++c);
+		setProgress(0);
+	}
+
+	return (
+		<dialog
+			ref={ref}
+			className="story"
+			onClose={() => {
+				setCurrentImageIndex(0);
+				onClose();
+			}}
+		>
+			<div className="duration__container">
+				{images.map((_, index) => (
+					<button
+						key={index}
+						onClick={() => setCurrentImageIndex(index)}
+						className="duration"
+						style={
+							{
+								"--progress":
+									currentImageIndex > index
+										? "100%"
+										: currentImageIndex === index
+											? `${progress}%`
+											: "0%",
+							} as React.CSSProperties
+						}
+					></button>
+				))}
+			</div>
+
+			<div className="main">
+				<div className="controls">
+					<button aria-label="previous-image" onClick={previousImage}></button>
+					<button aria-label="nex-image" onClick={nextImage}></button>
+				</div>
+				<figure>
+					<img src={images[currentImageIndex].url} alt="" loading="lazy" />
+					<figcaption>{images[currentImageIndex].caption}</figcaption>
+				</figure>
+			</div>
+		</dialog>
+	);
+}

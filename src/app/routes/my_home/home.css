@@ -283,6 +283,133 @@ section.experience {
   }
 }
 
+.story:is([open]) {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--common-border-radius);
+  border: 0;
+
+  width: 100%;
+  height: 100%;
+
+  @media screen and (min-width: 768px) {
+    max-width: 80%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 40%;
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(5px) brightness(0.2);
+  }
+
+  & .duration__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.3rem;
+    padding: 0.6rem;
+    width: 100%;
+
+    & > .duration {
+      position: relative;
+      background-color: var(--secondary);
+      flex: 1 1 0;
+      border: 0;
+      cursor: pointer;
+      height: 4px;
+      border-radius: 500px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: var(--progress);
+        background: var(--tertiary);
+        border-radius: inherit;
+      }
+
+      &.done {
+        background-color: var(--tertiary);
+      }
+
+      &:hover {
+        background-color: var(--tertiary);
+      }
+    }
+  }
+
+  & .main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 100%;
+    min-height: 0;
+    flex-grow: 1;
+
+    & .controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: row;
+      z-index: 10;
+
+      & > button {
+        background-color: transparent;
+        border: 0;
+        flex: 1 1 0;
+      }
+    }
+
+    & figure {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      max-width: 100%;
+      min-height: 0;
+      flex-grow: 1;
+
+      & img {
+        pointer-events: none;
+        user-select: none;
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      & figcaption {
+        pointer-events: none;
+        user-select: none;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: var(--white);
+        z-index: 10;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  & .icon {
+    width: var(--icon--size-l);
+  }
+}
+
 /* 
 .stack {
   background-color: var(--white);
