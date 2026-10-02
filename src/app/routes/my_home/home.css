@@ -402,6 +402,24 @@ section.experience {
         z-index: 10;
         font-size: 0.8rem;
       }
+
+      & .spinner__container {
+        position: absolute;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 1rem;
+        border-radius: var(--common-border-radius);
+        border: 1px solid var(--tertiary);
+
+        & > .icon {
+          color: var(--tertiary);
+          width: var(--icon--size-l);
+          aspect-ratio: 1/1;
+        }
+      }
     }
   }
 

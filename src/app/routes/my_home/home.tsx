@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, type ReactNode } from "react";
+import BlocksShuffle3Icon from "@iconify-react/svg-spinners/blocks-shuffle-3";
 
 import profileImg from "../../../assets/profile.png";
 import Curtains from "../../components/curtains/curtains";
@@ -390,6 +391,7 @@ type StoryProps = {
 function Story({ ref, images, storyVisible, onClose }: StoryProps) {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 	const [progress, setProgress] = useState(0);
+	const [imageLoading, setImageLoading] = useState(false);
 
 	useEffect(() => {
 		if (!storyVisible) {
@@ -406,7 +408,7 @@ function Story({ ref, images, storyVisible, onClose }: StoryProps) {
 	// Compute the width percentange of the mini progress bar depending on the time.
 	// ( currentTime / totalTime ) * 100 => the width of the mini progress bar.
 	useEffect(() => {
-		if (!storyVisible) {
+		if (!storyVisible || imageLoading) {
 			return;
 		}
 
@@ -429,7 +431,14 @@ function Story({ ref, images, storyVisible, onClose }: StoryProps) {
 		}, 16);
 
 		return () => clearInterval(interval);
-	}, [currentImageIndex, storyVisible]);
+	}, [currentImageIndex, storyVisible, imageLoading]);
+
+	useEffect(() => {
+		if (!storyVisible) {
+			return;
+		}
+		setImageLoading(true);
+	}, [currentImageIndex]);
 
 	function previousImage() {
 		if (currentImageIndex <= 0) {
@@ -484,8 +493,19 @@ function Story({ ref, images, storyVisible, onClose }: StoryProps) {
 					<button aria-label="nex-image" onClick={nextImage}></button>
 				</div>
 				<figure>
-					<img src={images[currentImageIndex].url} alt="" loading="lazy" />
+					<img
+						src={images[currentImageIndex].url}
+						alt=""
+						loading="lazy"
+						onLoad={() => setImageLoading(false)}
+					/>
 					<figcaption>{images[currentImageIndex].caption}</figcaption>
+
+					{imageLoading && (
+						<div className="spinner__container">
+							<BlocksShuffle3Icon className="icon" />
+						</div>
+					)}
 				</figure>
 			</div>
 		</dialog>
